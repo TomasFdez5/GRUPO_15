@@ -56,7 +56,7 @@ git push
     ~~~
     git pull
     ~~~ 
-** operación con *branches* remotos**
+**operación con *branches* remotos**
 
 * Creación:
     1. Crear branch local
