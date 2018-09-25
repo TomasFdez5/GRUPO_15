@@ -2,7 +2,7 @@
 ### Ramas o *branches*
 >Es la forma para separar la línea actual de desarrollo con respecto a la principal. Normalmente representan versiones del software que posteriormente son integradas a la línea principal.
 
-![Introducción a Ramas](https://ibb.co/cUx9sU)
+![Introducción a Ramas](<a href="https://imgbb.com/"><img src="https://image.ibb.co/dBvXU9/1.png" alt="1" border="0"></a>)
 
 ### Comandos Ramas I
 
@@ -83,3 +83,7 @@ git stash pop nomnre_stash
 ~~~
 
 
+## 0.5 GitHub 
+### GitHub no es Git
+
+<a href="https://imgbb.com/"><img src="https://image.ibb.co/gpT8K9/2.png" alt="2" border="0"></a>
