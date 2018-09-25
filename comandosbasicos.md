@@ -112,3 +112,51 @@ git log --since=2018-09-18
 git status
 ~~~
 
+#### Comandos básicos III
+##### Ver diferencia entre ficheros en el directorio y el repositorio de git:
+~~~
+git diff
+~~~
+
+##### Ver diferencia entre ficheros en el _staging_ y el repositorio:
+~~~
+git diff --staged
+~~~
+
+##### Eliminar archivos:
+~~~
+git rm archivo
+git commit -m "Mensaje"
+~~~
+
+##### Mover o renombrar archivos:
+~~~
+git mv antiguo nuevo
+git commit -m "Mensaje"
+~~~
+
+#### Comandos básicos IV
+##### Deshacer cambios con git:
+~~~
+git checkout -- nombre_fichero
+~~~
+
+##### Retirar archivos del _staging_:
+~~~
+git reset HEAD nombre_fichero
+~~~
+
+##### Complementar último commit:
+~~~
+git commit --amend -m "Mensaje"
+~~~
+
+##### Recuperar version de un fichero de commit antiguo:
+~~~
+git checkout <id_commit> -- nombre_archivo
+~~~
+
+##### Revertir un commit
+~~~
+git revert <id_commit>
+~~~
