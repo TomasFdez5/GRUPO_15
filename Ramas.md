@@ -5,7 +5,7 @@
 ![Introducción a Ramas](https://ibb.co/cUx9sU)
 
 ### Comandos Ramas I
-~~~
+
 ##### Ver listado de ramas:
 ~~~
 git branch
@@ -26,9 +26,9 @@ git checkout -b nombre_rama
 ~~~
 git diff nombre_rama..nombre_rama
 ~~~
-~~~
+
 ### Comandos Ramas II
-~~~
+
 ##### Ver ramas idénticas a la actual:
 ~~~
 git branch --merged
@@ -54,12 +54,12 @@ git merge nombre_rama
 ~~~
 git merge --abort
 ~~~
-~~~
+
 
 
 
 ### Comandos Ramas III
-~~~
+
 ##### Almacenar cambios temporales:
 ~~~
 git stash save "Mensaje"
@@ -81,7 +81,5 @@ git stash drop nombre_stash
 git stash apply nombre_stash
 git stash pop nomnre_stash
 ~~~
-~~~
-
 
 
