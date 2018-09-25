@@ -21,3 +21,37 @@ git checkout *nombre_rama*
 ~~~
 git checkout -b *nombre_rama*
 ~~~
+##### Comparar ramas:
+~~~
+git diff *nombre_rama*..*nombre_rama*
+~~~
+
+### Comandos Ramas II
+##### Ver ramas idénticas a la actual:
+~~~
+git branch --merged
+~~~
+
+##### Renombrar ramas:
+~~~
+git branch -m *nombre_antiguo*..*nombre_nuevo*
+~~~
+
+##### Eliminar ramas:
+~~~
+git branch -d *nombre_ramas*
+git branch -D *nombre_ramas*
+~~~
+
+##### Integrar ramas a la actual:
+~~~
+git merge *nombre_rama*
+~~~
+
+##### Resolver conflictos (se suele hacer manualmente):
+~~~
+git merge --abort
+~~~
+
+
+
