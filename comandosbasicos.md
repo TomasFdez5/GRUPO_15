@@ -28,3 +28,9 @@ Sitio web dónde podemos subir una copia de nuestro repositorio Git.
 ###### GitHub
 * Documentación de requerimientos.
 * Ver el avance del desarrollo.
+
+### 0.2. Instalación y configuración
+#### **Instalación**
+* Para instalar Git: [https://git-scm.com/](https://git-scm.com/)  
+* En el curso se utilizará Git a través de líneas de comandos. 
+* Para eclipse existen _plugins_ integrados: [https://www.eclipse.org/egit/](https://www.eclipse.org/egit/)
