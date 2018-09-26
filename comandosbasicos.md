@@ -1,6 +1,6 @@
 # Tutorial de Git y Github
 ## 0. Git
-### 0.1. Introducción
+## 0.1. Introducción
 * Código efímero.
 * Necesidad de mantener todas las versiones del código fuente.
 * Problemas en organizaciones para mantener el código actualizado.
@@ -17,7 +17,7 @@ Sistema para el control distribuido de versiones de código. Fundamentalmente pe
 #### **GitHub**
 Sitio web dónde podemos subir una copia de nuestro repositorio Git.
 
-##### Ventajas
+#### Ventajas
 ###### Git
 * Habilidad de deshacer cambios.
 * Historial y documentación de cambios.
@@ -29,7 +29,7 @@ Sitio web dónde podemos subir una copia de nuestro repositorio Git.
 * Documentación de requerimientos.
 * Ver el avance del desarrollo.
 
-### 0.2. Instalación y configuración
+## 0.2. Instalación y configuración
 #### **Instalación**
 * Para instalar Git: [https://git-scm.com/](https://git-scm.com/)  
 * En el curso se utilizará Git a través de líneas de comandos. 
@@ -61,10 +61,12 @@ git config --global color.ui true
 git config --list
 ~~~ 
 
-### **0.3. Uso básico**
+## **0.3. Uso básico**
 #### Los tres estados de Git
 
-#### Comandos básicos I
+<a href="https://ibb.co/ePuRbp"><img src="https://thumb.ibb.co/ePuRbp/4.png" alt="4" border="0"></a>
+
+### Comandos básicos I
 ##### Iniciar repositorio en un directorio:
 ~~~
 git init
@@ -91,7 +93,7 @@ git log
 ~~~
 
 
-#### Comandos básicos II
+### Comandos básicos II
 ##### Ayuda del listado anterior:
 ~~~
 git help log
@@ -112,7 +114,7 @@ git log --since=2018-09-18
 git status
 ~~~
 
-#### Comandos básicos III
+### Comandos básicos III
 ##### Ver diferencia entre ficheros en el directorio y el repositorio de git:
 ~~~
 git diff
@@ -135,7 +137,7 @@ git mv antiguo nuevo
 git commit -m "Mensaje"
 ~~~
 
-#### Comandos básicos IV
+### Comandos básicos IV
 ##### Deshacer cambios con git:
 ~~~
 git checkout -- nombre_fichero
@@ -161,7 +163,7 @@ git checkout <id_commit> -- nombre_archivo
 git revert <id_commit>
 ~~~
 
-#### Comandos básicos V
+### Comandos básicos V
 ##### Deshacer múltiples cambios en el repositorio:
 ~~~
 git reset --soft <id_commit>
@@ -179,7 +181,7 @@ git clean -n
 .gitignore
 ~~~
 
-#### Comandos básicos VI
+### Comandos básicos VI
 ##### Listar el contenido del repositorio de git:
 ~~~
 git ls-tree master
@@ -197,7 +199,7 @@ git log --oneline
 git log --oneline -3
 ~~~
 
-#### Comandos básicos VII
+### Comandos básicos VII
 ##### Examinar el contenido de un commit:
 ~~~
 git show <id>

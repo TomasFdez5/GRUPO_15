@@ -1,34 +1,34 @@
-## Comandos Github I
-#### Añadir repositorio remoto:
+### Comandos Github I
+##### Añadir repositorio remoto:
 ~~~
 git remote add origin url
 ~~~
-#### Ver repositorios remotos:
+##### Ver repositorios remotos:
 ~~~
 git remote -v
 ~~~
-#### Eliminar repositorio remoto:
+##### Eliminar repositorio remoto:
 ~~~
 git remote rm origin:
 ~~~
-#### Añadir cambios del repositorio local remoto:
+##### Añadir cambios del repositorio local remoto:
 ~~~
 git push -u origin master
 ~~~
-#### Añadir cambios de repositorio remoto al local
+##### Añadir cambios de repositorio remoto al local
 ~~~
 git pull
 ~~~
-## Comandos GitHub II
-#### Ver *branches* remotos:
+### Comandos GitHub II
+##### Ver *branches* remotos:
 ~~~
 git branch -r
 ~~~
-#### Ver todos los *branches*:
+##### Ver todos los *branches*:
 ~~~
 git branch -a
 ~~~
-#### Clonar un repositorio remoto:
+##### Clonar un repositorio remoto:
 ~~~~
 git clone url
 ~~~~
