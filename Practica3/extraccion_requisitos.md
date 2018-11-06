@@ -26,17 +26,19 @@
 6. Guardado automático y manual
 7. Cargar la copia de seguridad
 8. Mostar el listado completo de alumnos
+9. Generar fichero binario con las Id y las constraseñas de los profesores.
 ## **Requisitos NO funcionales:**
     
 1. Lenguaje de programación C++
 2. Compatible con GNU/linux
 3. Fácil de entender y visualmente agradable
 4. Copias de seguridad en ficheros binarios
-  Con colorines
-5. Formato de fichero HTML
-6. Clase máxima de 150 alumnos
-  Solo un líder por grupo
+5. Formato de fichero Markdown
+6. Clase máxima de 150 alumnos, solo un líder por grupo
 7. Orden alfabéticamente por apellido o nombre, de manera numérica del DNI sin importar letra o curso más alto en el que está matriculado, y todo lo anterior de manera ascendente o descendente
+8. El profesor es el encargado de ejecutar las operaciones sobre los datos.
+9. El coordinador, además de hacer las operaciones de los profesores, se encarga de guardar/cargar los ficheros.
+10. Se genera un fichero binario tanto para las credenciales de cada profesor como para todos los datos de los alumnos
 
 ## **Prioridades de los requisitos funcionales:**
 
