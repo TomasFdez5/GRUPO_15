@@ -15,6 +15,8 @@
 * Fecha de nacimiento 
 * Equipo al que pertenece
 * Líder (booleano)
+* ID profesor
+* Contraseña
 
 ## **Requisitos funcionales:**
 
