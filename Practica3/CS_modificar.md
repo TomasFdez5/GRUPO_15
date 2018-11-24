@@ -22,4 +22,4 @@
 #### Flujos alternativos:
 1. a Si no existe el alumno, se advierte al profesor.
 2. a Si el formato de los datos no es el correcto, los datos no se modificaran.
-2. b Si quitamos el líder de un grupo, pedir un nuevo líder.
+2. b Si quitamos el líder de un grupo, se advertirá de ello al profesor.
