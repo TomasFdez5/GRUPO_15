@@ -12,12 +12,12 @@
 1. La existencia del fichero que contiene los datos.
 
 #### Flujo principal:
-1. Se carga el fichero.
+1. Se elegirá el orden en el que se mostrarán los alumnos.
 2. Se creará un fichero markdown con los datos de los alumn@s.
 
 #### Postcondiciones:
 1. Se muestran los datos de los alumn@s por pantalla.
 
 #### Flujos alternativos:
-1. a Si no se carga el fichero se mostrará un error 
+1.a Si el orden no es correcto, no se creará el fichero con el listado. 
 
