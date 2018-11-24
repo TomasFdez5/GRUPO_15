@@ -19,6 +19,7 @@
 1. Ya está disponible toda la información sobre los alumn@s para el profesor.
 
 #### Flujos alternativos:
+1.a Si el fichero no existe se mostrará un error.
 2.a Si el archivo está corrupto no se cargará.
 
 
