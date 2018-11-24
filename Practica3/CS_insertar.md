@@ -19,7 +19,7 @@
 1. Se escriben los datos del alumno en el fichero.
 
 #### Flujos alternativos:         
-Si el alumno ya existe en la base, se advertirá y no se permitirá la insercción.
+1.a Si el alumno ya existe, se advertirá y no se permitirá la insercción.
 2.a Si no se rellenan campo obligatorios, se advierte al profesor.
 
 
