@@ -23,7 +23,7 @@
 
 #### Flujos alternativos:
 2. a Si no no existe el alumn@, se advertirá de ello.
-3. a Si se elimna de forma incorrecta, el archivo no se modifica.
+3. a Si el profesor no confirma el borrado del líder, se cancela la operación.
 
 
 
