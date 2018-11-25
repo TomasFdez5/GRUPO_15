@@ -19,5 +19,5 @@
 1. Se muestran los datos de los alumn@s por pantalla.
 
 #### Flujos alternativos:
-1.a Si el orden no es correcto, no se creará el fichero con el listado. 
+1.a Si el orden no es correcto, se volverá a pedir. 
 
