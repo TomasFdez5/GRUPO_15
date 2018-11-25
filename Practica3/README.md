@@ -1,4 +1,4 @@
-##Contenido del repositorio
+## Contenido del repositorio
 1. Diagrama de clases
 2. Diagramas de secuencias:
     1. Diagrama de secuencia buscar.
