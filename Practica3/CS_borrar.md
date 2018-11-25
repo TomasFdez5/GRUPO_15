@@ -19,7 +19,7 @@
 #### Postcondiciones:
 1. El fichero se modifica.
 2. El alumn@ ya no existe en el fichero.
-3. Si se elimina a un líder de equipo, se da la opción de elegir el otro.
+3. Si se elimina a un líder de equipo, se esperará la confirmación del profesor.
 
 #### Flujos alternativos:
 2. a Si no no existe el alumn@, se advertirá de ello.
