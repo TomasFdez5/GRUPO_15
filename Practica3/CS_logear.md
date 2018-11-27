@@ -9,7 +9,7 @@
 **Actores secundarios:** Ninguno.
 
 #### Precondiciones:
-1. Que el ID y la contraseña existan en la credencial del sistema.
+1. El ID y la contraseña deben existir en las credenciales del sistema.
 
 #### Flujo principal:
 1. El caso de uso comienza cuando el profesor quiere acceder al sistema.
