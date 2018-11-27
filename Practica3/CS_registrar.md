@@ -21,4 +21,4 @@
 2. Se accede al sistema.
 
 #### Flujos alternativos:
-3. Si existe la ID, se cancela el registro.
+3. Si existe la ID, se manda un mensaje de error.
