@@ -17,8 +17,8 @@ Tomás Fernández ayudará en el desarrollo de las funcionalidades.
 ~~~
 Tomás Fernández se encargará de modificar el Sprint Backlog y repartir las funcionalidades restantes:
 
-Manuel Cabrera se encargará de la funcionalidad de modificar, buscar, mostrar
-Sergio Lucena se encargará de la funcionalidad de borrar, insertar, mostrar listado
+Manuel Cabrera se encargará de la funcionalidad de modificar, buscar, mostrar.
+Sergio Lucena se encargará de la funcionalidad de borrar, insertar, mostrar listado.
 
-Tomás Fernández junto con  Manuel y Sergio realizarán las funcionalidades cargar y guardar.
+Tomás Fernández ayudará a Manuel y Sergio a realizar las funcionalidades.
 ~~~
