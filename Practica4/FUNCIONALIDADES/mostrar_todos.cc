@@ -1,8 +1,11 @@
-void Agenda::mostrar_todos(){
+int Agenda::mostrar_todos(){
 	ofstream ficherosalida("agenda.md");
 	list<Alumno>::iterator a1;
 	int i = 1;
-
+	if(agenda_.empty()){
+		ficherosalida.close();
+		return 0;
+	}
 	for(a1=agenda_.begin();a1!=agenda_.end();a1++){
 		ficherosalida<<"### Alumno "<<i<<endl;
 		ficherosalida<<"** DNI : "<<(*a1).getDNI()<<endl;
@@ -25,4 +28,5 @@ void Agenda::mostrar_todos(){
 
 
 	ficherosalida.close();
+	return 1;
 }

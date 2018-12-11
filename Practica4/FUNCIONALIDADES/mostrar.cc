@@ -1,7 +1,7 @@
 void Agenda::mostrar(string cadena){
 	list<Alumno>::iterator a1;
 	for(a1=agenda_.begin();a1!=agenda_.end();a1++){
-		if(buscar((cadena))==1){
+		if(a1->getDNI()==cadena&&buscar((cadena))==1){
 			string cadena=(*a1).getDNI()+".md";
 			ofstream ficherosalida(cadena.c_str());
 			ficherosalida<<"** DNI : "<<(*a1).getDNI()<<endl;
@@ -19,6 +19,7 @@ void Agenda::mostrar(string cadena){
 			else{
 				ficherosalida<<"** Lider : NO "<<endl;
 			}
+			imprimir(*a1);
 			ficherosalida.close();
 		}
 	}
