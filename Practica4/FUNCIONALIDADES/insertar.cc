@@ -5,6 +5,10 @@ void Agenda::insertar(Alumno alumno){
 			cout<<"El identificador del alumno (DNI) ya existe en la lista."<<endl;
 			break;
 		}
+		if(alumno.getEmail()==a1->getEmail()){
+			cout<<"El identificador del alumno (DNI) ya existe en la lista."<<endl;
+			break;
+		}
 	}
 	agenda_.push_back(alumno);
 }
