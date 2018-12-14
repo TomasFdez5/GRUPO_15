@@ -22,3 +22,15 @@ Sergio Lucena se encargará de la funcionalidad de borrar, insertar, mostrar lis
 
 Tomás Fernández ayudará a Manuel y Sergio a realizar las funcionalidades.
 ~~~
+
+## Semana 10/12/2018-16/12/2018
+
+### División del trabajo
+~~~
+Tomás Fernández se encargará de modificar el Sprint Backlog y repartir las funcionalidades restantes:
+
+Manuel Cabrera se encargará de la funcionalidad de cargar y guardar ficheros.
+Sergio Lucena se encargará de la funcionalidad de cargar y guardar copias.
+
+Conjuntamente se realizara la implementación de la funcion principal main y de sus respectivas pruebas.
+~~~
