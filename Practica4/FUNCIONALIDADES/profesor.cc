@@ -114,7 +114,7 @@ int Profesor::Guardar_fichero(string nombre,Agenda Aux){
 		 copia.close();
 	 }
  		ofstream fich(nombre);
- 		
+ 		fich.seekp(0, ios::beg);
  		list<Alumno>::iterator a1;
 
  		for(a1=Aux.getAgenda().begin();a1!=Aux.getAgenda().end();a1++){
