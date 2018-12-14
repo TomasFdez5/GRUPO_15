@@ -101,20 +101,19 @@ int Profesor::Cargar_fichero(string nombre,Agenda agenda){
 }
 
 int Profesor::Guardar_fichero(string nombre,Agenda Aux){
-	 int respuesta=0;
-	 ifstream copia(nombre.c_str());
-	 if(copia.is_open()){
-		 cout<<"El fichero ya existe. ¿Desea sobreescribirlo? Si 1 No 2"<<endl;
-		 cin>>respuesta;
-		 if(respuesta<1||respuesta>2||respuesta==2){
-			 cout<<"No ha introducido una respuesta valida. Cancelando ..."<<endl;
-			 copia.close();
-			 return 0;
-		 }
-		 copia.close();
-	 }
+	int respuesta=0;
+	ifstream copia(nombre.c_str());
+	if(copia.is_open()){
+		cout<<"El fichero ya existe. ¿Desea sobreescribirlo? Si 1 No 2"<<endl;
+		cin>>respuesta;
+		if(respuesta<1||respuesta>2||respuesta==2){
+			cout<<"No ha introducido una respuesta valida. Cancelando ..."<<endl;
+			copia.close();
+			return 0;
+		}
+		copia.close();
+	}
  		ofstream fich(nombre);
- 		fich.seekp(0, ios::beg);
  		list<Alumno>::iterator a1;
 
  		for(a1=Aux.getAgenda().begin();a1!=Aux.getAgenda().end();a1++){
