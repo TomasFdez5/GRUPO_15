@@ -123,3 +123,39 @@ int Profesor::Guardar_fichero(string nombre,Agenda Aux){
  		fich.close();
 		return 1;
 }
+
+/*
+Pruebas de funciones
+*/
+
+ list<class Alumno> Profesor::Cargar_copia(){
+ 	Alumno aux("A","b","c","d",0000000,"XXXX@gmail.com",0,"DD/MM/AA",0,9999);
+ 	list<class Alumno> agendaAux;
+ 	ifstream ficherosalida("agendaCOPIA.bin", ios::in|ios::binary);
+ 	ficherosalida.seekg(0,ios::beg);
+ 		//ficherosalida.open();
+ 		if(ficherosalida.is_open()){
+  			while(!ficherosalida.eof()){
+ 				ficherosalida.read((char*)&aux,sizeof(Alumno));
+ 				agendaAux.push_back(aux);
+
+  			}
+  		}
+ 	ficherosalida.close();
+ 	return agendaAux;
+ }
+
+ void Profesor::Guardar_copia(Agenda Aux){
+
+ 		ofstream copia("agendaCOPIA.bin");
+ 		copia.seekp(0, ios::beg);
+ 		list<Alumno>::iterator a1;
+
+ 		for(a1=Aux.getAgenda().begin();a1!=Aux.getAgenda().end();a1++){
+ 			copia.write((char*)&a1,sizeof(Alumno));
+ 		}
+
+ 		copia.close();
+
+
+ }
