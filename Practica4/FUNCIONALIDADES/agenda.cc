@@ -369,3 +369,49 @@ void Agenda::modificar1(string apellidos){
 		cout<<"Error no existe el alumno"<<endl;
 	}
 }
+
+
+//Funcion que se encarga de imprimir los datos por pantalla
+void Agenda::imprimir(Alumno alumno){
+	cout<<"NOMBRE :	"<<alumno.getNombre() <<endl;
+	cout<<"APELLIDOS : "<< alumno.getApellidos()<<endl;
+	cout<<"DNI : "<<alumno.getDNI() <<endl;
+	cout<<"DIRECCION : "<<alumno.getDireccion() <<endl;
+	cout<<"TELEFONO : "<<alumno.getTelefono() <<endl;
+	cout<<"EMAIL : "<<alumno.getEmail() <<endl;
+	cout<<"CURSO : "<<alumno.getCurso() <<endl;
+	cout<<"FECHA : "<< alumno.getFecha()<<endl;
+	cout<<"EQUIPO : "<<alumno.getEquipo() <<endl;
+	if(alumno.getLider()==1){
+		cout<<"LIDER : SI"<<endl;
+	}
+	else{
+		cout<<"LIDER : NO"<<endl;
+	}
+}
+
+
+int Agenda::comprobarlider(int team){
+	list<Alumno>::iterator a1;
+	list<Alumno>::iterator b2;
+	int encontrado=0;
+	for(a1=agenda_.begin();a1!=agenda_.end();a1++){
+		if(a1->getEquipo()==team){
+			for(b2=agenda_.begin();b2!=agenda_.end();b2++){
+				if(b2->getLider()==1){
+					encontrado=1;
+				}
+			}
+		}
+	}
+	return encontrado;
+}
+
+
+void Agenda::setAgenda(list<class Alumno> aux){
+	agenda_.clear();
+	/*
+	splice() : Transfers elements from x into the container, inserting them at position
+	*/
+	agenda_.splice(agenda_.begin(),aux);
+}
