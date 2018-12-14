@@ -78,3 +78,24 @@ int Profesor::Registrarse(Profesor aux){
 	}
 	return encontrado;
 }
+
+int Profesor::Cargar_fichero(string nombre,Agenda agenda){
+ 	Alumno aux("A","b","c","d",0000000,"XXXX@gmail.com",0,"DD/MM/AA",0,9999);
+ 	list<class Alumno> agendaAux;
+ 	ifstream ficherosalida(nombre, ios::in|ios::binary);
+ 	ficherosalida.seekg(0,ios::beg);
+ 		if(!ficherosalida.is_open()){
+			return 0;
+		}
+ 		if(ficherosalida.is_open()){
+  			while(!ficherosalida.eof()){
+ 				ficherosalida.read((char*)&aux,sizeof(Alumno));
+ 				agendaAux.push_back(aux);
+
+  			}
+  		}
+	agenda.setAgenda(agendaAux);
+ 	ficherosalida.close();
+ 	return 1;
+
+}
