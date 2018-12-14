@@ -200,7 +200,7 @@ void Agenda::modificar(string dni){
 			cout<<"10. Salir"<<endl;
 			cout<<"____________________________________________"<<endl;
 			cin>>n;
-			//while(n>0 && n<10){
+			
 					getchar();
 				switch(n){
 					case 1:
@@ -266,7 +266,7 @@ void Agenda::modificar(string dni){
 					a1->setLider(aux);
 					break;
 				};
-			//}
+			
 		}
 	}
 	if(find==0){
@@ -297,7 +297,7 @@ void Agenda::modificar1(string apellidos){
 			cout<<"10. Salir"<<endl;
 			cout<<"____________________________________________"<<endl;
 			cin>>n;
-			//while(n>0 && n<10){
+			
 				switch(n){
 					case 1:
 						cout<<"Nuevo nombre"<<endl;
@@ -362,7 +362,7 @@ void Agenda::modificar1(string apellidos){
 					a1->setLider(aux);
 					break;
 				};
-			//}
+			
 		}
 	}
 	if(find==0){
