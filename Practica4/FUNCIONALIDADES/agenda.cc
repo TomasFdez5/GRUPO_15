@@ -6,6 +6,19 @@
 using namespace std;
 
 
+/*
+Modulo ordenacion
+*/
+bool nombreASC(Alumno a,Alumno b){return a.getNombre()>b.getNombre();}
+bool nombreDESC(Alumno a,Alumno b){return a.getNombre()<b.getNombre();}
+bool apellidoASC(Alumno a,Alumno b){return a.getApellidos()>b.getApellidos();}
+bool apellidoDESC(Alumno a,Alumno b){return a.getApellidos()<b.getApellidos();}
+bool dniASC(Alumno a,Alumno b){return a.getDNI()>b.getDNI();}
+bool dniDESC(Alumno a,Alumno b){return a.getDNI()<b.getDNI();}
+bool equipoASC(Alumno a,Alumno b){return a.getEquipo()>b.getEquipo();}
+bool equipoDESC(Alumno a,Alumno b){return a.getEquipo()<b.getEquipo();}
+
+
 Agenda::Agenda(){}
 
 void Agenda::insertar(Alumno alumno){
