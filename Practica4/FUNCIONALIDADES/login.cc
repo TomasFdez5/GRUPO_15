@@ -9,18 +9,37 @@ struct registro
 	string ID;
 	string password;
 };
-
-int log_in(struct registro aux ){
+int Profesor::Logearse(Profesor aux){
  	struct registro read;
- 	ifstream Profesores("Profesores.bin", ios::binary);
- 	Profesores.seekg(0, ios::beg);
+ 	ifstream Profesores("Profesores.bin",ios::in| ios::binary);
+
  	if(Profesores.is_open()){
  		while(!Profesores.eof()){
 			Profesores.read((char*)&read,sizeof(registro));
- 			cout<<read.ID<<endl;
- 			cout<<read.password<<endl;
- 			Profesores.seekg(sizeof(registro),ios::cur);	
+ 			if(strcmp(read.ID,aux.id_)==0){
+ 				if(strcmp(read.password,aux.password_)==0){
+ 					if((aux.role_==read.rol) && (aux.role_==1)){
+ 						return 2;
+ 					}else{
+						if((aux.role_==read.rol)&& (aux.role_==0)){
+							return 1;
+						}else{
+							if(aux.role_!=read.rol){
+								return -1;
+							}
+						}
+
+					}
+
+ 				}
+ 				else{
+ 					return 0;
+ 				}
+ 			}
+
  		}
+
 	}
- 			Profesores.close();
+ 	Profesores.close();
+ 	return 0;
 }

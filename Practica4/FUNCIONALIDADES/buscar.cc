@@ -1,3 +1,4 @@
+
 int Agenda::buscar(string dni){
 	list<Alumno>::iterator a1;
 	int encontrado=0;
