@@ -4,8 +4,6 @@
 
 
 using namespace std;
-
-
 /*
 Modulo ordenacion
 */
@@ -21,6 +19,23 @@ bool equipoDESC(Alumno a,Alumno b){return a.getEquipo()<b.getEquipo();}
 
 Agenda::Agenda(){}
 
+int Agenda::comprobarlider(int team){
+	list<Alumno>::iterator a1;
+	list<Alumno>::iterator b2;
+	int encontrado=0;
+	for(a1=agenda_.begin();a1!=agenda_.end();a1++){
+		if(a1->getEquipo()==team){
+			for(b2=agenda_.begin();b2!=agenda_.end();b2++){
+				if(b2->getLider()==1){
+					encontrado=1;
+				}
+			}
+		}
+	}
+	return encontrado;
+}
+
+
 void Agenda::insertar(Alumno alumno){
 	list<Alumno>::iterator a1;
 	for(a1=agenda_.begin();a1!=agenda_.end();a1++){
@@ -35,7 +50,6 @@ void Agenda::insertar(Alumno alumno){
 	}
 	agenda_.push_back(alumno);
 }
-
 
 int Agenda::buscar(string dni){
 	list<Alumno>::iterator a1;
@@ -72,8 +86,24 @@ int Agenda::buscar2(int equipo){
 
 	return encontrado;
 }
-
-
+//Funcion que se encarga de imprimir los datos por pantalla
+void Agenda::imprimir(Alumno alumno){
+	cout<<"NOMBRE :	"<<alumno.getNombre() <<endl;
+	cout<<"APELLIDOS : "<< alumno.getApellidos()<<endl;
+	cout<<"DNI : "<<alumno.getDNI() <<endl;
+	cout<<"DIRECCION : "<<alumno.getDireccion() <<endl;
+	cout<<"TELEFONO : "<<alumno.getTelefono() <<endl;
+	cout<<"EMAIL : "<<alumno.getEmail() <<endl;
+	cout<<"CURSO : "<<alumno.getCurso() <<endl;
+	cout<<"FECHA : "<< alumno.getFecha()<<endl;
+	cout<<"EQUIPO : "<<alumno.getEquipo() <<endl;
+	if(alumno.getLider()==1){
+		cout<<"LIDER : SI"<<endl;
+	}
+	else{
+		cout<<"LIDER : NO"<<endl;
+	}
+}
 
 void Agenda::mostrar(string cadena){
 	list<Alumno>::iterator a1;
@@ -144,7 +174,6 @@ int Agenda::mostrar_todos(int seleccion,int orden){
 	return 1;
 }
 
-
 int Agenda::borrar(string dni){
 	list<Alumno>::iterator a1;
 
@@ -175,7 +204,6 @@ int Agenda::borrar1(string apellidos){
 	return 2;
 }
 
-
 void Agenda::modificar(string dni){
 	int find=0;
 	int n;
@@ -196,11 +224,12 @@ void Agenda::modificar(string dni){
 			cout<<"6. Curso"<<endl;
 			cout<<"7. Fecha"<<endl;
 			cout<<"8. Equipo"<<endl;
-			cout<<"9. Condición de lider"<<endl;
-			cout<<"10. Salir"<<endl;
+			cout<<"9. Telefono"<<endl;
+			cout<<"10. Condición de lider"<<endl;
+			cout<<"11. Salir"<<endl;
 			cout<<"____________________________________________"<<endl;
 			cin>>n;
-			
+			//while(n>0 && n<10){
 					getchar();
 				switch(n){
 					case 1:
@@ -243,7 +272,14 @@ void Agenda::modificar(string dni){
 						cin>>aux;
 						a1->setEquipo(aux);
 					break;
+
 					case 9:
+					cout<<"Nuevo telefono"<<endl;
+					cin>>aux;
+					a1->setTelefono(aux);
+					break;
+
+					case 10:
 					cout<<"Introduzca 0 si no es lider"<<endl;
 					cout<<"Introduzca 1 si es lider"<<endl;
 					list<Alumno>::iterator a2;
@@ -266,7 +302,7 @@ void Agenda::modificar(string dni){
 					a1->setLider(aux);
 					break;
 				};
-			
+			//}
 		}
 	}
 	if(find==0){
@@ -293,11 +329,12 @@ void Agenda::modificar1(string apellidos){
 			cout<<"6. Curso"<<endl;
 			cout<<"7. Fecha"<<endl;
 			cout<<"8. Equipo"<<endl;
-			cout<<"9. Condición de lider"<<endl;
-			cout<<"10. Salir"<<endl;
+			cout<<"9. Telefono"<<endl;
+			cout<<"10. Condición de lider"<<endl;
+			cout<<"11. Salir"<<endl;
 			cout<<"____________________________________________"<<endl;
 			cin>>n;
-			
+			//while(n>0 && n<10){
 				switch(n){
 					case 1:
 						cout<<"Nuevo nombre"<<endl;
@@ -339,9 +376,16 @@ void Agenda::modificar1(string apellidos){
 						cin>>aux;
 						a1->setEquipo(aux);
 					break;
+
 					case 9:
+					cout<<"Nuevo telefono"<<endl;
+					cin>>aux;
+					a1->setTelefono(aux);
+					break;
+
+					case 10:
 					cout<<"Introduzca 0 si no es lider"<<endl;
-					cout<<"Introduzaca 1 si es lider"<<endl;
+					cout<<"Introduzca 1 si es lider"<<endl;
 					list<Alumno>::iterator a2;
 					for(a2=agenda_.begin();a2!=agenda_.end();a1++){
 						if(a1->getEquipo()==a2->getEquipo()){
@@ -361,8 +405,9 @@ void Agenda::modificar1(string apellidos){
 					}
 					a1->setLider(aux);
 					break;
+
 				};
-			
+			//}
 		}
 	}
 	if(find==0){
@@ -370,48 +415,10 @@ void Agenda::modificar1(string apellidos){
 	}
 }
 
-
-//Funcion que se encarga de imprimir los datos por pantalla
-void Agenda::imprimir(Alumno alumno){
-	cout<<"NOMBRE :	"<<alumno.getNombre() <<endl;
-	cout<<"APELLIDOS : "<< alumno.getApellidos()<<endl;
-	cout<<"DNI : "<<alumno.getDNI() <<endl;
-	cout<<"DIRECCION : "<<alumno.getDireccion() <<endl;
-	cout<<"TELEFONO : "<<alumno.getTelefono() <<endl;
-	cout<<"EMAIL : "<<alumno.getEmail() <<endl;
-	cout<<"CURSO : "<<alumno.getCurso() <<endl;
-	cout<<"FECHA : "<< alumno.getFecha()<<endl;
-	cout<<"EQUIPO : "<<alumno.getEquipo() <<endl;
-	if(alumno.getLider()==1){
-		cout<<"LIDER : SI"<<endl;
-	}
-	else{
-		cout<<"LIDER : NO"<<endl;
-	}
-}
-
-
-int Agenda::comprobarlider(int team){
-	list<Alumno>::iterator a1;
-	list<Alumno>::iterator b2;
-	int encontrado=0;
-	for(a1=agenda_.begin();a1!=agenda_.end();a1++){
-		if(a1->getEquipo()==team){
-			for(b2=agenda_.begin();b2!=agenda_.end();b2++){
-				if(b2->getLider()==1){
-					encontrado=1;
-				}
-			}
-		}
-	}
-	return encontrado;
-}
-
-
 void Agenda::setAgenda(list<class Alumno> aux){
 	agenda_.clear();
-	/*
-	splice() : Transfers elements from x into the container, inserting them at position
-	*/
-	agenda_.splice(agenda_.begin(),aux);
+	list<Alumno>::iterator a1;
+	for(a1=aux.begin();a1!=aux.end();a1++){
+		agenda_.push_back((*a1));
+	}
 }
