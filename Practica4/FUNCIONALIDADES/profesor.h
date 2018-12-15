@@ -8,6 +8,7 @@
 #include "agenda.h"
 
 #include <string>
+#include <cstring>
 #include <list>
 using namespace std;
 
@@ -30,8 +31,8 @@ class Profesor{
 		int Registrarse(Profesor aux);
 		int Logearse(Profesor aux);
 
-		list<class Alumno> Cargar_copia();
-		void Guardar_copia(Agenda Aux);
+		int Cargar_copia(Agenda aux);
+		int Guardar_copia(Agenda aux);
 		int Cargar_fichero(string nombre,Agenda aux);
 		int Guardar_fichero(string nombre,Agenda Aux);
 
