@@ -1,5 +1,8 @@
 #include <fstream>
 #include <unistd.h>
+#include <cstdio>
+#include <string>
+#include <cstring>
 #include "profesor.h"
 #include "agenda.h"
 
@@ -80,20 +83,21 @@ int Profesor::Registrarse(Profesor aux){
 }
 
 int Profesor::Cargar_fichero(string nombre,Agenda agenda){
- 	Alumno aux("A","b","c","d",0000000,"XXXX@gmail.com",0,"DD/MM/AA",0,9999);
+ 	Alumno aux("a","b","c","d",0000000,"XXXX@gmail.com",0,"DD/MM/AA",0,0);
  	list<class Alumno> agendaAux;
- 	ifstream ficherosalida(nombre, ios::in|ios::binary);
- 	ficherosalida.seekg(0,ios::beg);
+ 	ifstream ficherosalida(nombre.c_str(), ios::in|ios::binary);
+ 	ficherosalida.seekg(0);
  		if(!ficherosalida.is_open()){
 			return 0;
 		}
  		if(ficherosalida.is_open()){
   			while(!ficherosalida.eof()){
- 				ficherosalida.read((char*)&aux,sizeof(Alumno));
- 				agendaAux.push_back(aux);
+ 					ficherosalida.read((char*)&aux,sizeof(Alumno));
+ 					agendaAux.push_back(aux);
 
   			}
   		}
+			cout<<"HOLA"<<endl;
 	agenda.setAgenda(agendaAux);
  	ficherosalida.close();
  	return 1;
@@ -113,7 +117,7 @@ int Profesor::Guardar_fichero(string nombre,Agenda Aux){
 		}
 		copia.close();
 	}
- 		ofstream fich(nombre);
+ 		ofstream fich(nombre.c_str());
  		list<Alumno>::iterator a1;
 
  		for(a1=Aux.getAgenda().begin();a1!=Aux.getAgenda().end();a1++){
@@ -128,34 +132,39 @@ int Profesor::Guardar_fichero(string nombre,Agenda Aux){
 Pruebas de funciones
 */
 
- list<class Alumno> Profesor::Cargar_copia(){
- 	Alumno aux("A","b","c","d",0000000,"XXXX@gmail.com",0,"DD/MM/AA",0,9999);
- 	list<class Alumno> agendaAux;
- 	ifstream ficherosalida("agendaCOPIA.bin", ios::in|ios::binary);
- 	ficherosalida.seekg(0,ios::beg);
- 		//ficherosalida.open();
- 		if(ficherosalida.is_open()){
-  			while(!ficherosalida.eof()){
- 				ficherosalida.read((char*)&aux,sizeof(Alumno));
- 				agendaAux.push_back(aux);
+int Profesor::Cargar_copia(Agenda agenda){
+	cout<<"hola"<<endl;
+	Alumno aux("a","b","c d","d",0000000,"XXXX@gmail.com",0,"DD/MM/AA",0,0);
+  list<class Alumno> agendaAux;
+  ifstream ficherosalida("agendaCOPIA.bin", ios::in|ios::binary);
+	//ficherosalida.seekg(0,ios::beg);
+ 	 if(!ficherosalida.is_open()){
+ 		 return 0;
+ 	 }
+ 	 if(ficherosalida.is_open()){
+ 			 while(!ficherosalida.eof()){
+ 			 		ficherosalida.read((char*)&aux,sizeof(Alumno));
+ 			 		agendaAux.push_back(aux);
 
-  			}
-  		}
- 	ficherosalida.close();
- 	return agendaAux;
+ 			 }
+ 		 }
+		 cout<<"hola"<<endl;
+  agenda.setAgenda(agendaAux);
+  ficherosalida.close();
+  return 1;
  }
 
- void Profesor::Guardar_copia(Agenda Aux){
+ int Profesor::Guardar_copia(Agenda aux){
 
- 		ofstream copia("agendaCOPIA.bin");
- 		copia.seekp(0, ios::beg);
- 		list<Alumno>::iterator a1;
+	 	ofstream fich("agendaCOPIA.bin");
+		//fich.seekp(0,ios::beg);
+	 	list<Alumno>::iterator a1;
 
- 		for(a1=Aux.getAgenda().begin();a1!=Aux.getAgenda().end();a1++){
- 			copia.write((char*)&a1,sizeof(Alumno));
- 		}
+	 	for(a1=aux.getAgenda().begin();a1!=aux.getAgenda().end();a1++){
+	 		fich.write((char*)&a1,sizeof(Alumno));
+	 	}
 
- 		copia.close();
-
+	 	fich.close();
+	 	return 1;
 
  }
