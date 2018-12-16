@@ -179,6 +179,7 @@ int Profesor::Registrarse(Profesor aux){
  list<class Alumno> Profesor::Cargar_fichero(string nombre){
 	char aux[40];
 	int entero=0;
+	int tam=0;
  	Alumno alumno("A","b","c","d",0000000,"XXXX@gmail.com",0,"DD/MM/AA",0,9999);
  	
  	list<class Alumno> agendaAux;
@@ -187,9 +188,15 @@ int Profesor::Registrarse(Profesor aux){
  	fich.seekg(0,ios::beg);
  		if(fich.is_open()){
  			
-  			while(!fich.eof()){
+ 			fich.seekg(0,ios::end);
+ 			tam=fich.tellg();
+ 			fich.seekg(0,ios::beg);
+ 			cout<<tam/sizeof(Alumno)<<endl;
+
+ 			tam=tam/sizeof(Alumno);
+
+  			for(int i=0;i<tam;i++){
  				fich.read((char*)&aux,40);
- 				cout<<"--"<<aux<<endl;
 	 			alumno.setDNI(aux);
 	 			
 	 			fich.read((char*)&aux,40);
@@ -220,8 +227,8 @@ int Profesor::Registrarse(Profesor aux){
 	 			alumno.setLider(entero);
  				
 
-  			}
 	 			agendaAux.push_back(alumno);
+  			}
   		
   		}
  	fich.close();
@@ -251,7 +258,6 @@ int Profesor::Registrarse(Profesor aux){
  		lista=Aux.getAgenda();
  		for(a1=lista.begin();a1!=lista.end();a1++){
  			strcpy(aux,a1->getDNI().c_str());
- 			cout<<"--"<<aux<<endl;
  			fich.write((char*)&aux,40);
  			strcpy(aux,a1->getNombre().c_str());
  			fich.write((char*)&aux,40);

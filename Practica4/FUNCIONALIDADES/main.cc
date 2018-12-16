@@ -367,7 +367,10 @@ int main(){
 						cout<<"\t1\tAscendente\n\t2\tDescendente"<<endl;
 						cin>>orden;
 						correcto=1;
-						if((aux<1||aux>4)&&(orden<1||orden>2)){correcto=1;}
+						if((aux<1||aux>4)&&(orden<1||orden>2)){
+							correcto=1;
+							break;
+						}
 				}
 				if(agend.mostrar_todos(aux,orden)==1){
 					cout<<"Generando fichero markdown con el listado de alumnos...."<<endl;
@@ -447,7 +450,7 @@ int main(){
 					cin>>nombrefichero;
 					agend.setAgenda(profesor.Cargar_fichero(nombrefichero));
 					cout<<"Cargado realizado con exito"<<endl;
-					
+
 
 
 					
@@ -759,7 +762,10 @@ int main(){
 								cout<<"\t1\tAscendente\n\t2\tDescendente"<<endl;
 								cin>>orden;
 								correcto=1;
-								if((aux<1||aux>4)&&(orden<1||orden>2)){correcto=1;}
+								if((aux<1||aux>4)&&(orden<1||orden>2)){
+									correcto=1;
+									break;
+								}
 						}
 						if(agend.mostrar_todos(aux,orden)==1){
 							cout<<"Generando fichero markdown con el listado de alumnos...."<<endl;
