@@ -113,16 +113,39 @@ int main(){
 
 		switch(opcion){
 			case 1:
-				cout<<"______________________________________________"<<endl;
+			cout<<"Introduzca el DNI del alumno a buscar."<<endl;
 
+			getline(cin,cadena);
+			if(cadena==vacio){
+				cout<<"No se ha introducido ningun DNI. ERROR!!!!"<<endl;
 				break;
+			}
+			if(agend.buscar(cadena)==1){
+				cout<<"El alumno existe en la agenda."<<endl;
+			}else{
+				cout<<"El alumno no existe en la agenda."<<endl;
+			}
+	break;
+
+		  break;
 
 			case 2:
 
 
-					break;
+			break;
 			case 3:
+			cout<<"______________________________________________"<<endl;
+			cout<<"Introduzca el DNI del alumno a mostrar."<<endl;
+			getline(cin,cadena);
+			if(cadena==vacio){
+				cout<<"No se ha introducido ningun DNI. ERROR!!!!"<<endl;
+				break;
+			}
 
+			agend.mostrar(cadena);
+
+			cout<<"______________________________________________\n"<<endl;
+			break;
 
 			case 4:
 
@@ -133,6 +156,16 @@ int main(){
 
 				break;
 			case 6:
+			cout<<"______________________________________________"<<endl;
+			cout<<"Introduzca el DNI del alumno a modificar."<<endl;
+			getline(cin,cadena);
+			if(cadena==vacio){
+				cout<<"No se ha introducido ningun DNI. ERROR!!!!"<<endl;
+				break;
+			}
+			agend.modificar(cadena);
+
+			cout<<"______________________________________________\n"<<endl;
 
 			break;
 
