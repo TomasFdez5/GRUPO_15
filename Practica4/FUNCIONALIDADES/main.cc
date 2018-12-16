@@ -113,23 +113,188 @@ int main(){
 
 		switch(opcion){
 			case 1:
-			cout<<"Introduzca el DNI del alumno a buscar."<<endl;
+				cout<<"______________________________________________"<<endl;
+				cout<<"Introduzca los datos del jugador. Los marcados con * son campos obligatorios!"<<endl;
+				cout<<"Introduzca su DNI* :"<<endl;
+				getline(cin,cadena);
+				if(cadena==vacio){
+					cout<<"No se ha introducido el campo obligatorio. ERROR!!!!"<<endl;
+					break;
+				}else{
+					a.setDNI(cadena);
+				}
 
-			getline(cin,cadena);
-			if(cadena==vacio){
-				cout<<"No se ha introducido ningun DNI. ERROR!!!!"<<endl;
-				break;
-			}
-			if(agend.buscar(cadena)==1){
-				cout<<"El alumno existe en la agenda."<<endl;
-			}else{
-				cout<<"El alumno no existe en la agenda."<<endl;
-			}
-	break;
+				cout<<"Introduzca su nombre* :"<<endl;
+				getline(cin,cadena);
+				if(cadena==vacio){
+					cout<<"No se ha introducido el campo obligatorio. ERROR!!!!"<<endl;
+					break;
+				}else{
+					a.setNombre(cadena);
+				}
 
-		  break;
+				cout<<"Introduzca su primer apellido* :"<<endl;
+				getline(cin,apellido1);
+				if(cadena==vacio){
+					cout<<"No se ha introducido el campo obligatorio. ERROR!!!!"<<endl;
+					break;
+				}else{
+
+					cout<<"Introduzca su segundo apellido* :"<<endl;
+					getline(cin,apellido2);
+					if(cadena==vacio){
+						cout<<"No se ha introducido el campo obligatorio. ERROR!!!!"<<endl;
+						break;
+					}else{
+
+						apellidos=apellido1+" "+apellido2;
+						a.setApellidos(apellidos);
+					}
+				}
+
+				cout<<"Introduzca su direccion* :"<<endl;
+				getline(cin,cadena);
+				if(cadena==vacio){
+					cout<<"No se ha introducido el campo obligatorio. ERROR!!!!"<<endl;
+					break;
+				}else{
+
+					a.setDireccion(cadena);
+				}
+
+				cout<<"Introduzca su Telefono* :"<<endl;
+				getline(cin,cadena);
+				if(cadena==vacio){
+					cout<<"No se ha introducido el campo obligatorio. ERROR!!!!"<<endl;
+					break;
+				}else{
+					aux=atoi(cadena.c_str());
+					a.setTelefono(aux);
+				}
+
+				cout<<"Introduzca su Email* :"<<endl;
+				getline(cin,cadena);
+				if(cadena==vacio){
+					cout<<"No se ha introducido el campo obligatorio. ERROR!!!!"<<endl;
+					break;
+				}else{
+
+					a.setEmail(cadena);
+				}
+
+				cout<<"Introduzca su Curso* :"<<endl;
+				getline(cin,cadena);
+				if(cadena==vacio){
+					cout<<"No se ha introducido el campo obligatorio. ERROR!!!!"<<endl;
+					break;
+				}else{
+					aux=atoi(cadena.c_str());
+					a.setCurso(aux);
+				}
+
+				cout<<"Introduzca su Fecha* :"<<endl;
+				cout<<"dd/mm/aaaa"<<endl;
+				getline(cin,cadena);
+				if(cadena==vacio){
+					cout<<"No se ha introducido el campo obligatorio. ERROR!!!!"<<endl;
+					break;
+				}else{
+
+					a.setFecha(cadena);
+				}
+
+				cout<<"Introduzca su Equipo :"<<endl;
+				getline(cin,cadena);
+				aux=atoi(cadena.c_str());
+				a.setEquipo(aux);
+
+				cout<<"Introduzca si es Lider de su grupo :"<<endl;
+				cout<<"true o false"<<endl;
+				getline(cin,cadena);
+
+				if(cadena=="true"){
+					if(agend.comprobarlider(aux)){
+						cout<<"En el equipo ya existe lider, estableciendo false..."<<endl;
+						a.setLider(false);
+					}else{
+						a.setLider(true);
+					}
+
+				}else{
+					if(cadena=="false"){
+						a.setLider(false);
+					}
+					else{
+						if(cadena!=vacio){
+							cout<<"No se ha introducido de forma correcta."<<endl;
+							cout<<"Lider = true, NO lider = false"<<endl;
+						}
+					}
+				}
+				agend.insertar(a);
+
+				cout<<"Jugador introducido con exito!"<<endl;
+				cout<<"______________________________________________\n"<<endl;
+
+			break;
+
 
 			case 2:
+				cout<<"______________________________________________"<<endl;
+				cout<<"Introduzca el criterio de busqueda : "<<endl;
+				cout<<"Mediante su DNI	1\nMediante su apellido 2\nMediante el equipo al que pertenece	3"<<endl;
+				cin>>opcion;
+				if(opcion<1&&opcion>3){
+					cout<<"Opción incorrecta! Cancelando..."<<endl;
+					break;
+				}
+				getchar();
+					switch(opcion){
+						case 1:
+								cout<<"Introduzca el DNI del alumno a buscar."<<endl;
+
+								getline(cin,cadena);
+								if(cadena==vacio){
+									cout<<"No se ha introducido ningun DNI. ERROR!!!!"<<endl;
+									break;
+								}
+								if(agend.buscar(cadena)==1){
+									cout<<"El alumno existe en la agenda."<<endl;
+								}else{
+									cout<<"El alumno no existe en la agenda."<<endl;
+								}
+						break;
+						case 2:
+								cout<<"Introduzca el apellido del alumno a buscar."<<endl;
+								getline(cin,cadena);
+								if(cadena==vacio){
+									cout<<"No se ha introducido ningun apellido. ERROR!!!!"<<endl;
+									break;
+								}
+								if(agend.buscar1(cadena)==1){
+									cout<<"El alumno existe en la agenda."<<endl;
+								}else{
+									cout<<"El alumno no existe en la agenda."<<endl;
+								}
+						break;
+
+						case 3:
+								cout<<"Introduzca el equipo al que pertenece el alumno a buscar."<<endl;
+
+								cin>>aux;
+								if(cadena==vacio){
+									cout<<"No se ha introducido ningun equipo. ERROR!!!!"<<endl;
+									break;
+								}
+								if(agend.buscar2(aux)==1){
+									cout<<"El alumno existe en la agenda."<<endl;
+								}else{
+									cout<<"El alumno no existe en la agenda."<<endl;
+								}
+						break;
+					};
+					cout<<"______________________________________________\n"<<endl;
+
 
 
 			break;
@@ -148,11 +313,37 @@ int main(){
 			break;
 
 			case 4:
+			cout<<"______________________________________________"<<endl;
+			correcto=0;
+			while(correcto==0){
+					cout<<"Introduzca el criterio de ordenación deseado : "<<endl;
+					cout<<"Alfabeticamente por nombre 1\n Alfabeticamente por apellido 2\n Numericamente por DNI 3\n Curso más alto matriculado 4."<<endl;
+					cin>>aux;
+					cout<<"Introduzca el método de ordenacion : "<<endl;
+					cout<<"Ascendente 1\n Descendente 2"<<endl;
+					cin>>orden;
+					correcto=1;
+					if((aux<1||aux>4)&&(orden<1||orden>2)){correcto=1;}
+			}
+			if(agend.mostrar_todos(aux,orden)==1){
+				cout<<"Generando fichero markdown con el listado de alumnos...."<<endl;
+			}
+
+			cout<<"______________________________________________\n"<<endl;
 
 			break;
 
 			case 5:
+			cout<<"______________________________________________"<<endl;
+			cout<<"Introduzca el DNI del alumno a borrar."<<endl;
+			getline(cin,cadena);
+			if(cadena==vacio){
+				cout<<"No se ha introducido ningun DNI. ERROR!!!!"<<endl;
+				break;
+			}
+			agend.borrar(cadena);
 
+			cout<<"______________________________________________\n"<<endl;
 
 				break;
 			case 6:
@@ -224,26 +415,250 @@ int main(){
 
 				switch(opcion){
 					case 1:
+						cout<<"______________________________________________"<<endl;
+						cout<<"Introduzca los datos del jugador. Los marcados con * son campos obligatorios!"<<endl;
+						cout<<"Introduzca su DNI* :"<<endl;
+						getline(cin,cadena);
+						if(cadena==vacio){
+							cout<<"No se ha introducido el campo obligatorio. ERROR!!!!"<<endl;
+							break;
+						}else{
+							a.setDNI(cadena);
+						}
 
-						break;
+						cout<<"Introduzca su nombre* :"<<endl;
+						getline(cin,cadena);
+						if(cadena==vacio){
+							cout<<"No se ha introducido el campo obligatorio. ERROR!!!!"<<endl;
+							break;
+						}else{
+							a.setNombre(cadena);
+						}
+
+						cout<<"Introduzca su primer apellido* :"<<endl;
+						getline(cin,apellido1);
+						if(cadena==vacio){
+							cout<<"No se ha introducido el campo obligatorio. ERROR!!!!"<<endl;
+							break;
+						}else{
+
+							cout<<"Introduzca su segundo apellido* :"<<endl;
+							getline(cin,apellido2);
+							if(cadena==vacio){
+								cout<<"No se ha introducido el campo obligatorio. ERROR!!!!"<<endl;
+								break;
+							}else{
+
+								apellidos=apellido1+" "+apellido2;
+								a.setApellidos(apellidos);
+							}
+						}
+
+						cout<<"Introduzca su direccion* :"<<endl;
+						getline(cin,cadena);
+						if(cadena==vacio){
+							cout<<"No se ha introducido el campo obligatorio. ERROR!!!!"<<endl;
+							break;
+						}else{
+
+							a.setDireccion(cadena);
+						}
+
+						cout<<"Introduzca su Telefono* :"<<endl;
+						getline(cin,cadena);
+						if(cadena==vacio){
+							cout<<"No se ha introducido el campo obligatorio. ERROR!!!!"<<endl;
+							break;
+						}else{
+							aux=atoi(cadena.c_str());
+							a.setTelefono(aux);
+						}
+
+						cout<<"Introduzca su Email* :"<<endl;
+						getline(cin,cadena);
+						if(cadena==vacio){
+							cout<<"No se ha introducido el campo obligatorio. ERROR!!!!"<<endl;
+							break;
+						}else{
+
+							a.setEmail(cadena);
+						}
+
+						cout<<"Introduzca su Curso* :"<<endl;
+						getline(cin,cadena);
+						if(cadena==vacio){
+							cout<<"No se ha introducido el campo obligatorio. ERROR!!!!"<<endl;
+							break;
+						}else{
+							aux=atoi(cadena.c_str());
+							a.setCurso(aux);
+						}
+
+						cout<<"Introduzca su Fecha* :"<<endl;
+						cout<<"dd/mm/aaaa"<<endl;
+						getline(cin,cadena);
+						if(cadena==vacio){
+							cout<<"No se ha introducido el campo obligatorio. ERROR!!!!"<<endl;
+							break;
+						}else{
+
+							a.setFecha(cadena);
+						}
+
+						cout<<"Introduzca su Equipo :"<<endl;
+						getline(cin,cadena);
+						aux=atoi(cadena.c_str());
+						a.setEquipo(aux);
+
+						cout<<"Introduzca si es Lider de su grupo :"<<endl;
+						cout<<"true o false"<<endl;
+						getline(cin,cadena);
+
+						if(cadena=="true"){
+							if(agend.comprobarlider(aux)){
+								cout<<"En el equipo ya existe lider, estableciendo false..."<<endl;
+								a.setLider(false);
+							}else{
+								a.setLider(true);
+							}
+
+						}else{
+							if(cadena=="false"){
+								a.setLider(false);
+							}
+							else{
+								if(cadena!=vacio){
+									cout<<"No se ha introducido de forma correcta."<<endl;
+									cout<<"Lider = true, NO lider = false"<<endl;
+								}
+							}
+						}
+						agend.insertar(a);
+
+						cout<<"Jugador introducido con exito!"<<endl;
+						cout<<"______________________________________________\n"<<endl;
+
+					break;
+
 
 					case 2:
+						cout<<"______________________________________________"<<endl;
+						cout<<"Introduzca el criterio de busqueda : "<<endl;
+						cout<<"Mediante su DNI	1\nMediante su apellido 2\nMediante el equipo al que pertenece	3"<<endl;
+						cin>>opcion;
+						if(opcion<1&&opcion>3){
+							cout<<"Opción incorrecta! Cancelando..."<<endl;
+							break;
+						}
+						getchar();
+							switch(opcion){
+								case 1:
+										cout<<"Introduzca el DNI del alumno a buscar."<<endl;
+
+										getline(cin,cadena);
+										if(cadena==vacio){
+											cout<<"No se ha introducido ningun DNI. ERROR!!!!"<<endl;
+											break;
+										}
+										if(agend.buscar(cadena)==1){
+											cout<<"El alumno existe en la agenda."<<endl;
+										}else{
+											cout<<"El alumno no existe en la agenda."<<endl;
+										}
+								break;
+								case 2:
+										cout<<"Introduzca el apellido del alumno a buscar."<<endl;
+										getline(cin,cadena);
+										if(cadena==vacio){
+											cout<<"No se ha introducido ningun apellido. ERROR!!!!"<<endl;
+											break;
+										}
+										if(agend.buscar1(cadena)==1){
+											cout<<"El alumno existe en la agenda."<<endl;
+										}else{
+											cout<<"El alumno no existe en la agenda."<<endl;
+										}
+								break;
+
+								case 3:
+										cout<<"Introduzca el equipo al que pertenece el alumno a buscar."<<endl;
+
+										cin>>aux;
+										if(cadena==vacio){
+											cout<<"No se ha introducido ningun equipo. ERROR!!!!"<<endl;
+											break;
+										}
+										if(agend.buscar2(aux)==1){
+											cout<<"El alumno existe en la agenda."<<endl;
+										}else{
+											cout<<"El alumno no existe en la agenda."<<endl;
+										}
+								break;
+							};
+							cout<<"______________________________________________\n"<<endl;
 
 
-						break;
+
+					break;
 					case 3:
-
+					cout<<"______________________________________________"<<endl;
+					cout<<"Introduzca el DNI del alumno a mostrar."<<endl;
+					getline(cin,cadena);
+					if(cadena==vacio){
+						cout<<"No se ha introducido ningun DNI. ERROR!!!!"<<endl;
 						break;
+					}
+
+					agend.mostrar(cadena);
+
+					cout<<"______________________________________________\n"<<endl;
+					break;
 
 					case 4:
+					cout<<"______________________________________________"<<endl;
+					correcto=0;
+					while(correcto==0){
+							cout<<"Introduzca el criterio de ordenación deseado : "<<endl;
+							cout<<"Alfabeticamente por nombre 1\n Alfabeticamente por apellido 2\n Numericamente por DNI 3\n Curso más alto matriculado 4."<<endl;
+							cin>>aux;
+							cout<<"Introduzca el método de ordenacion : "<<endl;
+							cout<<"Ascendente 1\n Descendente 2"<<endl;
+							cin>>orden;
+							correcto=1;
+							if((aux<1||aux>4)&&(orden<1||orden>2)){correcto=1;}
+					}
+					if(agend.mostrar_todos(aux,orden)==1){
+						cout<<"Generando fichero markdown con el listado de alumnos...."<<endl;
+					}
+
+					cout<<"______________________________________________\n"<<endl;
 
 					break;
 
 					case 5:
+					cout<<"______________________________________________"<<endl;
+					cout<<"Introduzca el DNI del alumno a borrar."<<endl;
+					getline(cin,cadena);
+					if(cadena==vacio){
+						cout<<"No se ha introducido ningun DNI. ERROR!!!!"<<endl;
+						break;
+					}
+					agend.borrar(cadena);
 
+					cout<<"______________________________________________\n"<<endl;
 
-					break;
+						break;
 					case 6:
+					cout<<"______________________________________________"<<endl;
+					cout<<"Introduzca el DNI del alumno a modificar."<<endl;
+					getline(cin,cadena);
+					if(cadena==vacio){
+						cout<<"No se ha introducido ningun DNI. ERROR!!!!"<<endl;
+						break;
+					}
+					agend.modificar(cadena);
+
+					cout<<"______________________________________________\n"<<endl;
 
 					break;
 
