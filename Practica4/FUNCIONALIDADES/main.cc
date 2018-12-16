@@ -636,9 +636,12 @@ int main(){
 								}
 							}
 						}
-						agend.insertar(a);
+						if(agend.insertar(a)==-1){
+							cout<<"Operacion cancelada"<<endl;
+							break;
+						}
+						agend.imprimir(a);
 
-						cout<<"Jugador introducido con exito!"<<endl;
 						cout<<"______________________________________________\n"<<endl;
 						break;
 
@@ -834,15 +837,8 @@ int main(){
 						cout<<"Introduzca el nombre del fichero a cargar : "<<endl;
 						cin>>nombrefichero;
 						agend.setAgenda(profesor.Cargar_fichero(nombrefichero));
-
-						/*if(profesor.Cargar_fichero(nombrefichero,agend)==0){
-							cout<<"El fichero no existe! "<<endl;
-							break;
-						}
-						else{
-							cout<<"Cargado con existo"<<endl;
-						}*/
-					cout<<"______________________________________________\n"<<endl;
+						cout<<"Cargado realizado con exito"<<endl;
+						cout<<"______________________________________________\n"<<endl;
 					break;
 
 					case 8:
