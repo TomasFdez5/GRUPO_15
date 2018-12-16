@@ -361,21 +361,57 @@ int main(){
 			break;
 
 			case 7:
+			cout<<"______________________________________________"<<endl;
+				cout<<"Introduzca el nombre del fichero a cargar : "<<endl;
+				cin>>nombrefichero;
+				if(profesor.Cargar_fichero(nombrefichero,agend)==0){
+					cout<<"El fichero no existe! "<<endl;
+					break;
+				}
+				else{
+					cout<<"Cargado con existo"<<endl;
+				}
+			cout<<"______________________________________________\n"<<endl;
 
 			break;
 
 			case 8:
+			cout<<"______________________________________________"<<endl;
+
+				cout<<"Introduzca el nombre del fichero a guardar : "<<endl;
+				cin>>nombrefichero;
+
+				if(profesor.Guardar_fichero(nombrefichero,agend)==1){
+					cout<<"Guardado correctamente."<<endl;
+				}
+
+			cout<<"______________________________________________\n"<<endl;
 
 
 			break;
 
 			case 9:
+			cout<<"______________________________________________"<<endl;
+
+			if(profesor.Cargar_copia(agend)==0){
+				cout<<"El fichero no existe! "<<endl;
+				break;
+			}
+			else{
+				cout<<"Cargado con existo"<<endl;
+			}
+			cout<<"______________________________________________"<<endl;
 
 			break;
 
 			case 10:
+			cout<<"______________________________________________"<<endl;
 
+			if(profesor.Guardar_copia(agend)==1){
+				cout<<"Guardado correctamente."<<endl;
+			}
 
+			cout<<"_______________________________________"<<endl;
 			break;
 
 		}
@@ -663,13 +699,33 @@ int main(){
 					break;
 
 					case 7:
-
-					break;
+					cout<<"______________________________________________"<<endl;
+						cout<<"Introduzca el nombre del fichero a cargar : "<<endl;
+						cin>>nombrefichero;
+						if(profesor.Cargar_fichero(nombrefichero,agend)==0){
+							cout<<"El fichero no existe! "<<endl;
+							break;
+						}
+						else{
+							cout<<"Cargado con existo"<<endl;
+						}
+					cout<<"______________________________________________\n"<<endl;
+				break;
 
 					case 8:
+					cout<<"______________________________________________"<<endl;
 
+						cout<<"Introduzca el nombre del fichero a guardar : "<<endl;
+						cin>>nombrefichero;
+
+						if(profesor.Guardar_fichero(nombrefichero,agend)==1){
+							cout<<"Guardado correctamente."<<endl;
+						}
+
+					cout<<"______________________________________________\n"<<endl;
 
 					break;
+
 
 				}
 
