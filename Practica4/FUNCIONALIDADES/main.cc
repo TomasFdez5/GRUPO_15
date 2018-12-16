@@ -246,7 +246,7 @@ int main(){
 					cout<<"Operacion cancelada"<<endl;
 					break;
 				}
-				
+
 
 
 				cout<<"______________________________________________\n"<<endl;
@@ -367,13 +367,15 @@ int main(){
 						cout<<"\t1\tAscendente\n\t2\tDescendente"<<endl;
 						cin>>orden;
 						correcto=1;
-						if((aux<1||aux>4)&&(orden<1||orden>2)){
-							correcto=1;
-							break;
+						if((aux<1||aux>4)||(orden<1||orden>2)){
+							correcto=0;
+							cout<<"Eleccion incorrecta"<<endl;
+						}else{
+							if(agend.mostrar_todos(aux,orden)==1){
+								cout<<"Generando fichero markdown con el listado de alumnos...."<<endl;
+
 						}
-				}
-				if(agend.mostrar_todos(aux,orden)==1){
-					cout<<"Generando fichero markdown con el listado de alumnos...."<<endl;
+					}
 				}
 
 				cout<<"______________________________________________\n"<<endl;
@@ -647,7 +649,7 @@ int main(){
 							cout<<"Operacion cancelada"<<endl;
 							break;
 						}
-						
+
 
 						cout<<"______________________________________________\n"<<endl;
 						break;
@@ -765,13 +767,14 @@ int main(){
 								cout<<"\t1\tAscendente\n\t2\tDescendente"<<endl;
 								cin>>orden;
 								correcto=1;
-								if((aux<1||aux>4)&&(orden<1||orden>2)){
-									correcto=1;
-									break;
+								if((aux<1||aux>4)||(orden<1||orden>2)){
+									correcto=0;
+									cout<<"Eleccion incorrecta"<<endl;
+								}else{
+									if(agend.mostrar_todos(aux,orden)==1){
+										cout<<"Generando fichero markdown con el listado de alumnos...."<<endl;
+									}
 								}
-						}
-						if(agend.mostrar_todos(aux,orden)==1){
-							cout<<"Generando fichero markdown con el listado de alumnos...."<<endl;
 						}
 
 
