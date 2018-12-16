@@ -447,7 +447,11 @@ int main(){
 					cin>>nombrefichero;
 					agend.setAgenda(profesor.Cargar_fichero(nombrefichero));
 					cout<<"Cargado realizado con exito"<<endl;
+<<<<<<< HEAD
 					(agend.getAgenda()).pop_front();
+=======
+					
+>>>>>>> 2debdade4461f7a4ba823839cdecf14ed4211636
 
 
 					
