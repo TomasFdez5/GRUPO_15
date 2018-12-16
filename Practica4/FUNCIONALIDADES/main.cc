@@ -89,7 +89,7 @@ int main(){
 
 	if(profesor.getRole()==1){
 		do{
-		
+
 		cout<<"______________________________________________"<<endl;
 		cout<<"Elija una opción:"<<endl;
 
@@ -248,7 +248,7 @@ int main(){
 				}
 				agend.imprimir(a);
 
-				
+
 				cout<<"______________________________________________\n"<<endl;
 				break;
 
@@ -352,7 +352,7 @@ int main(){
 						break;
 					};
 
-				
+
 				cout<<"______________________________________________\n"<<endl;
 				break;
 
@@ -400,7 +400,7 @@ int main(){
 									if(agend.borrar(cadena)==2){
 										cout<<"Jugador que desea borrar no se encuentra en la lista."<<endl;
 									}
-									
+
 								}
 
 						break;
@@ -421,7 +421,7 @@ int main(){
 								}
 
 						break;
-						
+
 					};
 
 
@@ -447,15 +447,7 @@ int main(){
 					cin>>nombrefichero;
 					agend.setAgenda(profesor.Cargar_fichero(nombrefichero));
 					cout<<"Cargado realizado con exito"<<endl;
-<<<<<<< HEAD
-					(agend.getAgenda()).pop_front();
-=======
-					
->>>>>>> 2debdade4461f7a4ba823839cdecf14ed4211636
-
-
-					
-				cout<<"______________________________________________\n"<<endl;
+					cout<<"______________________________________________\n"<<endl;
 			break;
 
 			case 8:
@@ -473,7 +465,7 @@ int main(){
 			break;
 
 			case 9:
-				
+
 				agend.setAgenda(profesor.Cargar_copia());
 				cout<<"Cargado realizado con exito"<<endl;
 
@@ -496,7 +488,7 @@ int main(){
 	else{
 		if(profesor.getRole()==0){
 			do{
-				
+
 				cout<<"______________________________________________"<<endl;
 				cout<<"Elija una opción:"<<endl;
 
@@ -703,7 +695,7 @@ int main(){
 									}
 							break;
 						};
-					
+
 						cout<<"______________________________________________\n"<<endl;
 
 						break;
@@ -747,10 +739,10 @@ int main(){
 								break;
 							};
 
-				
+
 					cout<<"______________________________________________\n"<<endl;
 					break;
-						
+
 
 					case 4:
 						cout<<"______________________________________________"<<endl;
@@ -769,7 +761,7 @@ int main(){
 							cout<<"Generando fichero markdown con el listado de alumnos...."<<endl;
 						}
 
-				
+
 						cout<<"______________________________________________\n"<<endl;
 					break;
 
@@ -797,7 +789,7 @@ int main(){
 											if(agend.borrar(cadena)==2){
 												cout<<"Jugador que desea borrar no se encuentra en la lista."<<endl;
 											}
-											
+
 										}
 
 								break;
@@ -814,11 +806,11 @@ int main(){
 											if(agend.borrar1(cadena)==2){
 												cout<<"Jugador que desea borrar no se encuentra en la lista."<<endl;
 											}
-											
+
 										}
 
 								break;
-								
+
 							};
 
 						cout<<"______________________________________________\n"<<endl;
