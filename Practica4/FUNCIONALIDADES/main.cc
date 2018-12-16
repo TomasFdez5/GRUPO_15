@@ -89,7 +89,7 @@ int main(){
 
 	if(profesor.getRole()==1){
 		do{
-		
+
 		cout<<"______________________________________________"<<endl;
 		cout<<"Elija una opción:"<<endl;
 
@@ -246,9 +246,9 @@ int main(){
 					cout<<"Operacion cancelada"<<endl;
 					break;
 				}
-				agend.imprimir(a);
-
 				
+
+
 				cout<<"______________________________________________\n"<<endl;
 				break;
 
@@ -352,7 +352,7 @@ int main(){
 						break;
 					};
 
-				
+
 				cout<<"______________________________________________\n"<<endl;
 				break;
 
@@ -403,7 +403,7 @@ int main(){
 									if(agend.borrar(cadena)==2){
 										cout<<"Jugador que desea borrar no se encuentra en la lista."<<endl;
 									}
-									
+
 								}
 
 						break;
@@ -424,7 +424,7 @@ int main(){
 								}
 
 						break;
-						
+
 					};
 
 
@@ -452,9 +452,8 @@ int main(){
 					cout<<"Cargado realizado con exito"<<endl;
 
 
+					cout<<"______________________________________________\n"<<endl;
 
-					
-				cout<<"______________________________________________\n"<<endl;
 			break;
 
 			case 8:
@@ -472,9 +471,10 @@ int main(){
 			break;
 
 			case 9:
-				
+				cout<<"______________________________________________\n"<<endl;
 				agend.setAgenda(profesor.Cargar_copia());
 				cout<<"Cargado realizado con exito"<<endl;
+				cout<<"______________________________________________\n"<<endl;
 
 			break;
 
@@ -495,7 +495,7 @@ int main(){
 	else{
 		if(profesor.getRole()==0){
 			do{
-				
+
 				cout<<"______________________________________________"<<endl;
 				cout<<"Elija una opción:"<<endl;
 
@@ -643,9 +643,12 @@ int main(){
 								}
 							}
 						}
-						agend.insertar(a);
+						if(agend.insertar(a)==-1){
+							cout<<"Operacion cancelada"<<endl;
+							break;
+						}
+						
 
-						cout<<"Jugador introducido con exito!"<<endl;
 						cout<<"______________________________________________\n"<<endl;
 						break;
 
@@ -702,7 +705,7 @@ int main(){
 									}
 							break;
 						};
-					
+
 						cout<<"______________________________________________\n"<<endl;
 
 						break;
@@ -746,10 +749,10 @@ int main(){
 								break;
 							};
 
-				
+
 					cout<<"______________________________________________\n"<<endl;
 					break;
-						
+
 
 					case 4:
 						cout<<"______________________________________________"<<endl;
@@ -771,7 +774,7 @@ int main(){
 							cout<<"Generando fichero markdown con el listado de alumnos...."<<endl;
 						}
 
-				
+
 						cout<<"______________________________________________\n"<<endl;
 					break;
 
@@ -799,7 +802,7 @@ int main(){
 											if(agend.borrar(cadena)==2){
 												cout<<"Jugador que desea borrar no se encuentra en la lista."<<endl;
 											}
-											
+
 										}
 
 								break;
@@ -816,11 +819,11 @@ int main(){
 											if(agend.borrar1(cadena)==2){
 												cout<<"Jugador que desea borrar no se encuentra en la lista."<<endl;
 											}
-											
+
 										}
 
 								break;
-								
+
 							};
 
 						cout<<"______________________________________________\n"<<endl;
@@ -844,15 +847,8 @@ int main(){
 						cout<<"Introduzca el nombre del fichero a cargar : "<<endl;
 						cin>>nombrefichero;
 						agend.setAgenda(profesor.Cargar_fichero(nombrefichero));
-
-						/*if(profesor.Cargar_fichero(nombrefichero,agend)==0){
-							cout<<"El fichero no existe! "<<endl;
-							break;
-						}
-						else{
-							cout<<"Cargado con existo"<<endl;
-						}*/
-					cout<<"______________________________________________\n"<<endl;
+						cout<<"Cargado realizado con exito"<<endl;
+						cout<<"______________________________________________\n"<<endl;
 					break;
 
 					case 8:
@@ -868,17 +864,10 @@ int main(){
 					cout<<"______________________________________________\n"<<endl;
 
 					break;
-
 				}
-
 			}while((opcion<9)&&(opcion>0));
-
 		}
 
-
-		}
-
+	}
 	return 0;
-
-
 }
