@@ -37,7 +37,10 @@ int main(){
 	cout<<"¿Que desea realizar?"<<endl;
 	cout<<"1\tRegistrarse\n2\tLogearse"<<endl;
 		cin>>opcion;
-
+		if(opcion<1||opcion>2){
+			cout<<"Opcion incorrecta! Saliendo..."<<endl;
+			return -1;
+		}
 		cout<<"Introduzca su ID : "<<endl;
 			cin>>id;
 			cout<<"Introduzca su contraseña : "<<endl;
@@ -243,6 +246,7 @@ int main(){
 					cout<<"Operacion cancelada"<<endl;
 					break;
 				}
+				agend.imprimir(a);
 
 				
 				cout<<"______________________________________________\n"<<endl;
@@ -347,7 +351,6 @@ int main(){
 
 						break;
 					};
-					cout<<"______________________________________________\n"<<endl;
 
 				
 				cout<<"______________________________________________\n"<<endl;
@@ -394,10 +397,10 @@ int main(){
 								if(agend.borrar(cadena)==1){
 									cout<<"Jugador borrado con exito."<<endl;
 								}else{
-										if(agend.borrar(cadena)==2){
-											cout<<"Jugador que desea borrar no se encuentra en la lista."<<endl;
-										}
-										
+									if(agend.borrar(cadena)==2){
+										cout<<"Jugador que desea borrar no se encuentra en la lista."<<endl;
+									}
+									
 								}
 
 						break;
@@ -410,11 +413,11 @@ int main(){
 								}
 								if(agend.borrar1(cadena)==1){
 									cout<<"Jugador borrado con exito."<<endl;
-								}else{
-										if(agend.borrar1(cadena)==2){
-											cout<<"Jugador que desea borrar no se encuentra en la lista."<<endl;
-										}
-											
+								}
+								else{
+									if(agend.borrar1(cadena)==2){
+										cout<<"Jugador que desea borrar no se encuentra en la lista."<<endl;
+									}
 								}
 
 						break;
@@ -442,13 +445,12 @@ int main(){
 				cout<<"______________________________________________"<<endl;
 					cout<<"Introduzca el nombre del fichero a cargar : "<<endl;
 					cin>>nombrefichero;
-					if(profesor.Cargar_fichero(nombrefichero,agend)==0){
-						cout<<"El fichero no existe! "<<endl;
-						break;
-					}
-					else{
-						cout<<"Cargado con existo"<<endl;
-					}
+					agend.setAgenda(profesor.Cargar_fichero(nombrefichero));
+					cout<<"Cargado realizado con exito"<<endl;
+					(agend.getAgenda()).pop_front();
+
+
+					
 				cout<<"______________________________________________\n"<<endl;
 			break;
 
@@ -467,9 +469,9 @@ int main(){
 			break;
 
 			case 9:
-				cout<<"tenemos un grave problema"<<endl;
+				
 				agend.setAgenda(profesor.Cargar_copia());
-				cout<<"cargado realizado con exito"<<endl;
+				cout<<"Cargado realizado con exito"<<endl;
 
 			break;
 
@@ -736,10 +738,6 @@ int main(){
 										cout<<"Introduzca el equipo al que pertenece el alumno a mostrar."<<endl;
 
 										cin>>aux;
-										if(cadena==vacio){
-											cout<<"No se ha introducido ningun equipo. ERROR!!!!"<<endl;
-											break;
-										}
 										agend.mostrar2(aux);
 
 								break;
@@ -839,13 +837,15 @@ int main(){
 					cout<<"______________________________________________"<<endl;
 						cout<<"Introduzca el nombre del fichero a cargar : "<<endl;
 						cin>>nombrefichero;
-						if(profesor.Cargar_fichero(nombrefichero,agend)==0){
+						agend.setAgenda(profesor.Cargar_fichero(nombrefichero));
+
+						/*if(profesor.Cargar_fichero(nombrefichero,agend)==0){
 							cout<<"El fichero no existe! "<<endl;
 							break;
 						}
 						else{
 							cout<<"Cargado con existo"<<endl;
-						}
+						}*/
 					cout<<"______________________________________________\n"<<endl;
 					break;
 

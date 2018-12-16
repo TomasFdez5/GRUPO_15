@@ -23,16 +23,16 @@ int Lider_;
 public:
 Alumno(string DNI, string Nombre, string Apellidos, string Direccion, int Telefono, string Email, int Curso, string Fecha, int Equipo, int Lider);
 
-inline string getDNI()const{return DNI_;};
-inline string getNombre()const{return Nombre_;};
-inline string getApellidos()const{return Apellidos_;};
-inline string getDireccion()const{return Direccion_;};
-inline int getTelefono()const{return Telefono_;};
-inline string getEmail()const{return Email_;};
-inline int getCurso()const{return Curso_;};
-inline string getFecha()const{return Fecha_;};
-inline int getEquipo()const{return Equipo_;};
-inline int getLider()const{return Lider_;};
+inline string getDNI(){return DNI_;};
+inline string getNombre(){return Nombre_;};
+inline string getApellidos(){return Apellidos_;};
+inline string getDireccion(){return Direccion_;};
+inline int getTelefono(){return Telefono_;};
+inline string getEmail(){return Email_;};
+inline int getCurso(){return Curso_;};
+inline string getFecha(){return Fecha_;};
+inline int getEquipo(){return Equipo_;};
+inline int getLider(){return Lider_;};
 
 inline void setDNI(string aux){DNI_=aux;};
 inline void setNombre(string aux){Nombre_=aux;};

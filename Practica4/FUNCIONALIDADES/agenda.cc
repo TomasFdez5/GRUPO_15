@@ -53,8 +53,9 @@ int Agenda::insertar(Alumno alumno){
 		}
 	}
 	if(contador<3){
-	agenda_.push_back(alumno);
-	cout<<"alumno introducido con exito!"<<endl;
+		agenda_.push_back(alumno);
+		cout<<"Alumno introducido con exito!"<<endl;
+		return 1;
 	}
 	else{
 		cout<<"Equipo completo"<<endl;
@@ -117,6 +118,7 @@ void Agenda::imprimir(Alumno alumno){
 }
 
 void Agenda::mostrar(string cadena){
+	int iter=1;
 	list<Alumno>::iterator a1;
 	for(a1=agenda_.begin();a1!=agenda_.end();a1++){
 		if(a1->getDNI()==cadena&&buscar((cadena))==1){
@@ -137,13 +139,18 @@ void Agenda::mostrar(string cadena){
 			else{
 				ficherosalida<<"** Lider : NO "<<endl;
 			}
+			cout<<"\tAlumno "<<iter<<" : "<<endl;
+			cout<<"|==========================|"<<endl;
 			imprimir(*a1);
+			cout<<"|==========================|"<<endl;
 			ficherosalida.close();
 		}
+		iter++;
 	}
 
 }
 void Agenda::mostrar1(string cadena){
+	int iter=1;
 	list<Alumno>::iterator a1;
 	for(a1=agenda_.begin();a1!=agenda_.end();a1++){
 		if(a1->getApellidos()==cadena&&buscar1((cadena))==1){
@@ -164,7 +171,10 @@ void Agenda::mostrar1(string cadena){
 			else{
 				ficherosalida<<"** Lider : NO "<<endl;
 			}
+			cout<<"\tAlumno "<<iter<<" : "<<endl;
+			cout<<"|==========================|"<<endl;
 			imprimir(*a1);
+			cout<<"|==========================|"<<endl;
 			ficherosalida.close();
 		}
 	}
@@ -172,6 +182,7 @@ void Agenda::mostrar1(string cadena){
 }
 
 void Agenda::mostrar2(int equipo){
+	int iter=1;
 	list<Alumno>::iterator a1;
 	for(a1=agenda_.begin();a1!=agenda_.end();a1++){
 		if(a1->getEquipo()==equipo&&buscar2((equipo))==1){
@@ -192,7 +203,10 @@ void Agenda::mostrar2(int equipo){
 			else{
 				ficherosalida<<"** Lider : NO "<<endl;
 			}
+			cout<<"\tAlumno "<<iter<<" : "<<endl;
+			cout<<"|==========================|"<<endl;
 			imprimir(*a1);
+			cout<<"|==========================|"<<endl;
 			ficherosalida.close();
 		}
 	}
@@ -242,6 +256,7 @@ int Agenda::borrar(string dni){
 	list<Alumno>::iterator a1;
 
 	if(agenda_.empty()){
+		cout<<"Error! Lista vacia, no se puede borrar."<<endl;
 		return -1;
 	}
 	for(a1=agenda_.begin(); a1!=agenda_.end();a1++){
@@ -480,7 +495,7 @@ void Agenda::modificar1(string apellidos){
 	}
 }
 
-void Agenda::setAgenda(list<class Alumno> aux){
+void Agenda::setAgenda(list<Alumno> aux){
 	agenda_.clear();
 	list<Alumno>::iterator a1;
 	for(a1=aux.begin();a1!=aux.end();a1++){
