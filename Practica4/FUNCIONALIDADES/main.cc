@@ -393,9 +393,11 @@ int main(){
 								}
 								if(agend.borrar(cadena)==1){
 									cout<<"Jugador borrado con exito."<<endl;
-								}
-								if(agend.borrar(cadena)==2){
-									cout<<"Jugador que desea borrar no se encuentra en la lista."<<endl;
+								}else{
+										if(agend.borrar(cadena)==2){
+											cout<<"Jugador que desea borrar no se encuentra en la lista."<<endl;
+										}
+										
 								}
 
 						break;
@@ -408,9 +410,11 @@ int main(){
 								}
 								if(agend.borrar1(cadena)==1){
 									cout<<"Jugador borrado con exito."<<endl;
-								}
-								if(agend.borrar1(cadena)==2){
-									cout<<"Jugador que desea borrar no se encuentra en la lista."<<endl;
+								}else{
+										if(agend.borrar1(cadena)==2){
+											cout<<"Jugador que desea borrar no se encuentra en la lista."<<endl;
+										}
+											
 								}
 
 						break;
@@ -787,9 +791,11 @@ int main(){
 										}
 										if(agend.borrar(cadena)==1){
 											cout<<"Jugador borrado con exito."<<endl;
-										}
-										if(agend.borrar(cadena)==2){
-											cout<<"Jugador que desea borrar no se encuentra en la lista."<<endl;
+										}else{
+											if(agend.borrar(cadena)==2){
+												cout<<"Jugador que desea borrar no se encuentra en la lista."<<endl;
+											}
+											
 										}
 
 								break;
@@ -802,9 +808,11 @@ int main(){
 										}
 										if(agend.borrar1(cadena)==1){
 											cout<<"Jugador borrado con exito."<<endl;
-										}
-										if(agend.borrar1(cadena)==2){
-											cout<<"Jugador que desea borrar no se encuentra en la lista."<<endl;
+										}else{
+											if(agend.borrar1(cadena)==2){
+												cout<<"Jugador que desea borrar no se encuentra en la lista."<<endl;
+											}
+											
 										}
 
 								break;
