@@ -1,8 +1,8 @@
+#include <cstdio>
+#include <cstring>
+#include <iostream>
 #include <fstream>
 #include <unistd.h>
-#include <cstdio>
-#include <string>
-#include <cstring>
 #include "profesor.h"
 #include "agenda.h"
 
@@ -14,7 +14,6 @@ Profesor::Profesor(char* id, char* password, int rol){
 	strcpy(password_,password);
 	role_=rol;
 }
-
 
 int Profesor::Logearse(Profesor aux){
  	struct registro read;
@@ -80,44 +79,34 @@ int Profesor::Registrarse(Profesor aux){
 
 	}
 	return encontrado;
-}
+ }
 
-int Profesor::Cargar_fichero(string nombre,Agenda agenda){
- 	Alumno aux("a","b","c","d",0000000,"XXXX@gmail.com",0,"DD/MM/AA",0,0);
+ list<class Alumno> Profesor::Cargar_copia(){
+ 	//Alumno aux("A","b","c","d",0000000,"XXXX@gmail.com",0,"DD/MM/AA",0,9999);
  	list<class Alumno> agendaAux;
- 	ifstream ficherosalida(nombre.c_str(), ios::in|ios::binary);
- 	ficherosalida.seekg(0);
- 		if(!ficherosalida.is_open()){
-			return 0;
-		}
+ 	registroAlumno alumAux;
+ 	cout<<"1"<<endl;
+ 	ifstream ficherosalida("agendaCOPIA.bin", ios::in|ios::binary);
+ 	ficherosalida.seekg(0,ios::beg);
  		if(ficherosalida.is_open()){
+ 			cout<<"2"<<endl;
   			while(!ficherosalida.eof()){
- 					ficherosalida.read((char*)&aux,sizeof(Alumno));
- 					agendaAux.push_back(aux);
+ 				ficherosalida.read((char*)&alumAux,sizeof(registroAlumno));
+ 				Alumno aux(alumAux.dni, alumAux.nombre, alumAux.apellidos, alumAux.direccion,alumAux.telefono,alumAux.email,alumAux.curso,alumAux.fecha,alumAux.equipo,alumAux.lider);
+ 				agendaAux.push_back(aux);
 
   			}
+  		cout<<"3"<<endl;
   		}
-			cout<<"HOLA"<<endl;
-	agenda.setAgenda(agendaAux);
  	ficherosalida.close();
- 	return 1;
+ 	cout<<"4"<<endl;
+ 	return agendaAux;
+ }
 
-}
+ int Profesor::Guardar_copia(Agenda Aux){
 
-int Profesor::Guardar_fichero(string nombre,Agenda Aux){
-	int respuesta=0;
-	ifstream copia(nombre.c_str());
-	if(copia.is_open()){
-		cout<<"El fichero ya existe. ¿Desea sobreescribirlo? Si 1 No 2"<<endl;
-		cin>>respuesta;
-		if(respuesta<1||respuesta>2||respuesta==2){
-			cout<<"No ha introducido una respuesta valida. Cancelando ..."<<endl;
-			copia.close();
-			return 0;
-		}
-		copia.close();
-	}
- 		ofstream fich(nombre.c_str());
+ 		ofstream fich("agendaCOPIA.bin");
+ 
  		list<Alumno>::iterator a1;
 
  		for(a1=Aux.getAgenda().begin();a1!=Aux.getAgenda().end();a1++){
@@ -126,45 +115,49 @@ int Profesor::Guardar_fichero(string nombre,Agenda Aux){
 
  		fich.close();
 		return 1;
-}
 
-/*
-Pruebas de funciones
-*/
-
-int Profesor::Cargar_copia(Agenda agenda){
-	cout<<"hola"<<endl;
-	Alumno aux("a","b","c d","d",0000000,"XXXX@gmail.com",0,"DD/MM/AA",0,0);
-  list<class Alumno> agendaAux;
-  ifstream ficherosalida("agendaCOPIA.bin", ios::in|ios::binary);
-	//ficherosalida.seekg(0,ios::beg);
- 	 if(!ficherosalida.is_open()){
- 		 return 0;
- 	 }
- 	 if(ficherosalida.is_open()){
- 			 while(!ficherosalida.eof()){
- 			 		ficherosalida.read((char*)&aux,sizeof(Alumno));
- 			 		agendaAux.push_back(aux);
-
- 			 }
- 		 }
-		 cout<<"hola"<<endl;
-  agenda.setAgenda(agendaAux);
-  ficherosalida.close();
-  return 1;
  }
+ int Profesor::Cargar_fichero(string nombre,Agenda agenda){
+ 	Alumno aux("A","b","c","d",0000000,"XXXX@gmail.com",0,"DD/MM/AA",0,9999);
+ 	list<class Alumno> agendaAux;
+ 	ifstream ficherosalida(nombre.c_str(), ios::in|ios::binary);
+ 	ficherosalida.seekg(0,ios::beg);
+ 		if(!ficherosalida.is_open()){
+			return 0;
+		}
+ 		if(ficherosalida.is_open()){
+  			while(!ficherosalida.eof()){
+ 				ficherosalida.read((char*)&aux,sizeof(Alumno));
+ 				agendaAux.push_back(aux);
 
- int Profesor::Guardar_copia(Agenda aux){
+  			}
+  		}
+	agenda.setAgenda(agendaAux);
+ 	ficherosalida.close();
+ 	return 1;
 
-	 	ofstream fich("agendaCOPIA.bin");
-		//fich.seekp(0,ios::beg);
-	 	list<Alumno>::iterator a1;
+ }
+ int Profesor::Guardar_fichero(string nombre,Agenda Aux){
+	 int respuesta=0;
+	 ifstream copia(nombre.c_str());
+	 if(copia.is_open()){
+		 cout<<"El fichero ya existe. ¿Desea sobreescribirlo? Si 1 No 2"<<endl;
+		 cin>>respuesta;
+		 if(respuesta<1||respuesta>2||respuesta==2){
+			 cout<<"No ha introducido una respuesta valida. Cancelando ..."<<endl;
+			 copia.close();
+			 return 0;
+		 }
+		 copia.close();
+	 }
+ 		ofstream fich(nombre.c_str());
+ 		//fich.seekp(0, ios::beg);
+ 		list<Alumno>::iterator a1;
 
-	 	for(a1=aux.getAgenda().begin();a1!=aux.getAgenda().end();a1++){
-	 		fich.write((char*)&a1,sizeof(Alumno));
-	 	}
+ 		for(a1=Aux.getAgenda().begin();a1!=Aux.getAgenda().end();a1++){
+ 			fich.write((char*)&a1,sizeof(Alumno));
+ 		}
 
-	 	fich.close();
-	 	return 1;
-
+ 		fich.close();
+		return 1;
  }

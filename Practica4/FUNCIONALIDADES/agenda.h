@@ -18,7 +18,8 @@ class Agenda{
 
 		Agenda();
 
-		void insertar(Alumno alumno);
+		int comprobarlider(int team);
+		int insertar(Alumno alumno);
 
 		int buscar(string dni);
 		int buscar1(string apellidos);
@@ -31,11 +32,11 @@ class Agenda{
 		int borrar1(string apellidos);
 
 		void mostrar(string cadena);
+		void mostrar1(string cadena);
+		void mostrar2(int equipo);
 		int mostrar_todos(int seleccion,int orden);
 
-		//Funciones auxiliares
 		void imprimir(Alumno alumno);
-		int comprobarlider(int team);
 
 		inline list<class Alumno> getAgenda(){return agenda_;};
 		void setAgenda(list<class Alumno>);

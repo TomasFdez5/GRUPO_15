@@ -8,11 +8,21 @@
 #include "agenda.h"
 
 #include <string>
-#include <cstring>
 #include <list>
 using namespace std;
 
-//Estructura auxiliar
+struct registroAlumno{
+	char nombre[20];
+	char apellidos[40];
+	char dni[9];
+	char direccion[50];
+	int telefono;
+	char email[20];
+	int curso;
+	char fecha[10];
+	int equipo;
+	int lider;
+};
 struct registro
 {
 	char ID[20];
@@ -30,13 +40,10 @@ class Profesor{
 		Profesor(char* id,char* password, int rol);
 		int Registrarse(Profesor aux);
 		int Logearse(Profesor aux);
-
-		int Cargar_copia(Agenda aux);
-		int Guardar_copia(Agenda aux);
+		list<class Alumno> Cargar_copia();
+		int Guardar_copia(Agenda Aux);
 		int Cargar_fichero(string nombre,Agenda aux);
 		int Guardar_fichero(string nombre,Agenda Aux);
-
-		//Funcion auxiliar
 		inline int getRole()const{return role_;};
 
 

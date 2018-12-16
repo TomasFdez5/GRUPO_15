@@ -7,14 +7,14 @@ using namespace std;
 /*
 Modulo ordenacion
 */
-bool nombreASC(Alumno a,Alumno b){return a.getNombre()>b.getNombre();}
-bool nombreDESC(Alumno a,Alumno b){return a.getNombre()<b.getNombre();}
-bool apellidoASC(Alumno a,Alumno b){return a.getApellidos()>b.getApellidos();}
-bool apellidoDESC(Alumno a,Alumno b){return a.getApellidos()<b.getApellidos();}
-bool dniASC(Alumno a,Alumno b){return a.getDNI()>b.getDNI();}
-bool dniDESC(Alumno a,Alumno b){return a.getDNI()<b.getDNI();}
-bool equipoASC(Alumno a,Alumno b){return a.getEquipo()>b.getEquipo();}
-bool equipoDESC(Alumno a,Alumno b){return a.getEquipo()<b.getEquipo();}
+bool nombreASC(Alumno a,Alumno b){return a.getNombre()<b.getNombre();}
+bool nombreDESC(Alumno a,Alumno b){return a.getNombre()>b.getNombre();}
+bool apellidoASC(Alumno a,Alumno b){return a.getApellidos()<b.getApellidos();}
+bool apellidoDESC(Alumno a,Alumno b){return a.getApellidos()>b.getApellidos();}
+bool dniASC(Alumno a,Alumno b){return a.getDNI()<b.getDNI();}
+bool dniDESC(Alumno a,Alumno b){return a.getDNI()>b.getDNI();}
+bool equipoASC(Alumno a,Alumno b){return a.getEquipo()<b.getEquipo();}
+bool equipoDESC(Alumno a,Alumno b){return a.getEquipo()>b.getEquipo();}
 
 
 Agenda::Agenda(){}
@@ -36,19 +36,30 @@ int Agenda::comprobarlider(int team){
 }
 
 
-void Agenda::insertar(Alumno alumno){
+int Agenda::insertar(Alumno alumno){
+	int contador=0;
 	list<Alumno>::iterator a1;
 	for(a1=agenda_.begin();a1!=agenda_.end();a1++){
 		if(alumno.getDNI()==a1->getDNI()){
 			cout<<"El identificador del alumno (DNI) ya existe en la lista."<<endl;
-			break;
+			return -1;
 		}
 		if(alumno.getEmail()==a1->getEmail()){
-			cout<<"El identificador del alumno (DNI) ya existe en la lista."<<endl;
-			break;
+			cout<<"El correo del alumno ya existe en la lista."<<endl;
+			return -1;
+		}
+		if(alumno.getEquipo()==a1->getEquipo()){
+			contador++;
 		}
 	}
+	if(contador<3){
 	agenda_.push_back(alumno);
+	cout<<"alumno introducido con exito!"<<endl;
+	}
+	else{
+		cout<<"Equipo completo"<<endl;
+		return -1;
+	}
 }
 
 int Agenda::buscar(string dni){
@@ -132,8 +143,61 @@ void Agenda::mostrar(string cadena){
 	}
 
 }
+void Agenda::mostrar1(string cadena){
+	list<Alumno>::iterator a1;
+	for(a1=agenda_.begin();a1!=agenda_.end();a1++){
+		if(a1->getApellidos()==cadena&&buscar1((cadena))==1){
+			string cadena=(*a1).getDNI()+".md";
+			ofstream ficherosalida(cadena.c_str());
+			ficherosalida<<"** DNI : "<<(*a1).getDNI()<<endl;
+			ficherosalida<<"** Nombre : "<<(*a1).getNombre()<<endl;
+			ficherosalida<<"** Apellidos : "<<(*a1).getApellidos()<<endl;
+			ficherosalida<<"** Direccion : "<<(*a1).getDireccion()<<endl;
+			ficherosalida<<"** Telefono : "<<(*a1).getTelefono()<<endl;
+			ficherosalida<<"** Email : "<<(*a1).getEmail()<<endl;
+			ficherosalida<<"** Curso : "<<(*a1).getCurso()<<endl;
+			ficherosalida<<"** Fecha de nacimiento : "<<(*a1).getFecha()<<endl;
+			ficherosalida<<"** Equipo : "<<(*a1).getEquipo()<<endl;
+			if((*a1).getLider()==1){
+				ficherosalida<<"** Lider : SI "<<endl;
+			}
+			else{
+				ficherosalida<<"** Lider : NO "<<endl;
+			}
+			imprimir(*a1);
+			ficherosalida.close();
+		}
+	}
 
+}
 
+void Agenda::mostrar2(int equipo){
+	list<Alumno>::iterator a1;
+	for(a1=agenda_.begin();a1!=agenda_.end();a1++){
+		if(a1->getEquipo()==equipo&&buscar2((equipo))==1){
+			string cadena=(*a1).getDNI()+".md";
+			ofstream ficherosalida(cadena.c_str());
+			ficherosalida<<"** DNI : "<<(*a1).getDNI()<<endl;
+			ficherosalida<<"** Nombre : "<<(*a1).getNombre()<<endl;
+			ficherosalida<<"** Apellidos : "<<(*a1).getApellidos()<<endl;
+			ficherosalida<<"** Direccion : "<<(*a1).getDireccion()<<endl;
+			ficherosalida<<"** Telefono : "<<(*a1).getTelefono()<<endl;
+			ficherosalida<<"** Email : "<<(*a1).getEmail()<<endl;
+			ficherosalida<<"** Curso : "<<(*a1).getCurso()<<endl;
+			ficherosalida<<"** Fecha de nacimiento : "<<(*a1).getFecha()<<endl;
+			ficherosalida<<"** Equipo : "<<(*a1).getEquipo()<<endl;
+			if((*a1).getLider()==1){
+				ficherosalida<<"** Lider : SI "<<endl;
+			}
+			else{
+				ficherosalida<<"** Lider : NO "<<endl;
+			}
+			imprimir(*a1);
+			ficherosalida.close();
+		}
+	}
+
+}
 int Agenda::mostrar_todos(int seleccion,int orden){
 	ofstream ficherosalida("agenda.md");
 	list<Alumno>::iterator a1;
@@ -148,8 +212,8 @@ int Agenda::mostrar_todos(int seleccion,int orden){
 	if(seleccion==2&&orden==2){agenda_.sort(apellidoDESC);}
 	if(seleccion==3&&orden==1){agenda_.sort(dniASC);}
 	if(seleccion==3&&orden==2){agenda_.sort(dniDESC);}
-	if(seleccion==2&&orden==1){agenda_.sort(equipoASC);}
-	if(seleccion==2&&orden==2){agenda_.sort(equipoDESC);}
+	if(seleccion==4&&orden==1){agenda_.sort(equipoASC);}
+	if(seleccion==4&&orden==2){agenda_.sort(equipoDESC);}
 
 	for(a1=agenda_.begin();a1!=agenda_.end();a1++){
 		ficherosalida<<"### Alumno "<<i<<endl;
@@ -229,7 +293,6 @@ void Agenda::modificar(string dni){
 			cout<<"11. Salir"<<endl;
 			cout<<"____________________________________________"<<endl;
 			cin>>n;
-			//while(n>0 && n<10){
 					getchar();
 				switch(n){
 					case 1:
@@ -283,7 +346,7 @@ void Agenda::modificar(string dni){
 					cout<<"Introduzca 0 si no es lider"<<endl;
 					cout<<"Introduzca 1 si es lider"<<endl;
 					list<Alumno>::iterator a2;
-					for(a2=agenda_.begin();a2!=agenda_.end();a1++){
+					for(a2=agenda_.begin();a2!=agenda_.end();a2++){
 						if(a1->getEquipo()==a2->getEquipo()){
 							if(a2->getLider()==1){
 								existe=1;
@@ -297,12 +360,13 @@ void Agenda::modificar(string dni){
 					}
 					if(a1->getLider()==1 && aux==0){
 						cout<<"Advertencia: Se ha borrado al lider"<<endl;
+						cout<<"El equipo "<<a1->getEquipo()<<" sin lider"<<endl;
 
 					}
 					a1->setLider(aux);
 					break;
 				};
-			//}
+			
 		}
 	}
 	if(find==0){
@@ -334,7 +398,7 @@ void Agenda::modificar1(string apellidos){
 			cout<<"11. Salir"<<endl;
 			cout<<"____________________________________________"<<endl;
 			cin>>n;
-			//while(n>0 && n<10){
+				getchar();
 				switch(n){
 					case 1:
 						cout<<"Nuevo nombre"<<endl;
@@ -387,7 +451,7 @@ void Agenda::modificar1(string apellidos){
 					cout<<"Introduzca 0 si no es lider"<<endl;
 					cout<<"Introduzca 1 si es lider"<<endl;
 					list<Alumno>::iterator a2;
-					for(a2=agenda_.begin();a2!=agenda_.end();a1++){
+					for(a2=agenda_.begin();a2!=agenda_.end();a2++){
 						if(a1->getEquipo()==a2->getEquipo()){
 							if(a2->getLider()==1){
 								existe=1;
@@ -401,13 +465,14 @@ void Agenda::modificar1(string apellidos){
 					}
 					if(a1->getLider()==1 && aux==0){
 						cout<<"Advertencia: Se ha borrado al lider"<<endl;
+						cout<<"El equipo "<<a1->getEquipo()<<" sin lider"<<endl;
 
 					}
 					a1->setLider(aux);
 					break;
 
 				};
-			//}
+			
 		}
 	}
 	if(find==0){
