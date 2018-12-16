@@ -11,18 +11,7 @@
 #include <list>
 using namespace std;
 
-struct registroAlumno{
-	char nombre[20];
-	char apellidos[40];
-	char dni[9];
-	char direccion[50];
-	int telefono;
-	char email[20];
-	int curso;
-	char fecha[10];
-	int equipo;
-	int lider;
-};
+
 struct registro
 {
 	char ID[20];
@@ -42,7 +31,7 @@ class Profesor{
 		int Logearse(Profesor aux);
 		list<class Alumno> Cargar_copia();
 		int Guardar_copia(Agenda Aux);
-		int Cargar_fichero(string nombre,Agenda aux);
+		 list<class Alumno> Cargar_fichero(string nombre);
 		int Guardar_fichero(string nombre,Agenda Aux);
 		inline int getRole()const{return role_;};
 

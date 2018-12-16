@@ -82,80 +82,195 @@ int Profesor::Registrarse(Profesor aux){
  }
 
  list<class Alumno> Profesor::Cargar_copia(){
- 	//Alumno aux("A","b","c","d",0000000,"XXXX@gmail.com",0,"DD/MM/AA",0,9999);
+ 	char aux[40];
+	int entero=0;
+ 	Alumno alumno("A","b","c","d",0000000,"XXXX@gmail.com",0,"DD/MM/AA",0,9999);
+ 	
  	list<class Alumno> agendaAux;
- 	registroAlumno alumAux;
- 	cout<<"1"<<endl;
- 	ifstream ficherosalida("agendaCOPIA.bin", ios::in|ios::binary);
- 	ficherosalida.seekg(0,ios::beg);
- 		if(ficherosalida.is_open()){
- 			cout<<"2"<<endl;
-  			while(!ficherosalida.eof()){
- 				ficherosalida.read((char*)&alumAux,sizeof(registroAlumno));
- 				Alumno aux(alumAux.dni, alumAux.nombre, alumAux.apellidos, alumAux.direccion,alumAux.telefono,alumAux.email,alumAux.curso,alumAux.fecha,alumAux.equipo,alumAux.lider);
- 				agendaAux.push_back(aux);
+ 		
+ 	ifstream fich("agendaCOPIA.bin", ios::in|ios::binary);
+ 	fich.seekg(0,ios::beg);
+ 		if(fich.is_open()){
+ 			
+  			while(!fich.eof()){
+ 				fich.read((char*)&aux,40);
+	 			alumno.setDNI(aux);
+	 			
+	 			fich.read((char*)&aux,40);
+	 			alumno.setNombre(aux);
+	 			
+	 			fich.read((char*)&aux,40);
+	 			alumno.setApellidos(aux); 			
+
+	 			fich.read((char*)&aux,40);
+	 			alumno.setDireccion(aux);
+	 			
+	 			fich.read((char*)&entero,sizeof(int));
+	 			alumno.setTelefono(entero);
+
+	 			fich.read((char*)&aux,40);
+	 			alumno.setEmail(aux);
+
+	 			fich.read((char*)&entero,sizeof(int));
+	 			alumno.setCurso(entero);
+
+	 			fich.read((char*)&aux,40);
+	 			alumno.setFecha(aux);
+
+	 			fich.read((char*)&entero,sizeof(int));
+	 			alumno.setEquipo(entero);
+
+	 			fich.read((char*)&entero,sizeof(int));
+	 			alumno.setLider(entero);
+	 			agendaAux.push_back(alumno);
+ 				
 
   			}
-  		cout<<"3"<<endl;
+  		
   		}
- 	ficherosalida.close();
- 	cout<<"4"<<endl;
+ 	fich.close();
  	return agendaAux;
  }
 
  int Profesor::Guardar_copia(Agenda Aux){
-
+ 		char aux[40];
+ 		int entero=0;
  		ofstream fich("agendaCOPIA.bin");
- 
+ 		fich.seekp(0,ios::beg);
  		list<Alumno>::iterator a1;
+ 		list<Alumno> lista;
+ 		lista=Aux.getAgenda();
 
- 		for(a1=Aux.getAgenda().begin();a1!=Aux.getAgenda().end();a1++){
- 			fich.write((char*)&a1,sizeof(Alumno));
+ 		for(a1=lista.begin();a1!=lista.end();a1++){
+ 			strcpy(aux,a1->getDNI().c_str());
+ 			fich.write((char*)&aux,40);
+
+ 			strcpy(aux,a1->getNombre().c_str());
+ 			fich.write((char*)&aux,40);
+
+ 			strcpy(aux,a1->getApellidos().c_str());
+ 			fich.write((char*)&aux,40);
+
+ 			strcpy(aux,a1->getDireccion().c_str());
+ 			fich.write((char*)&aux,40);
+
+ 			entero=a1->getTelefono();
+ 			fich.write((char*)&entero,sizeof(int));
+
+ 			strcpy(aux,a1->getEmail().c_str());
+ 			fich.write((char*)&aux,40);
+
+ 			entero=a1->getCurso();
+ 			fich.write((char*)&entero,sizeof(int));
+
+ 			strcpy(aux,a1->getFecha().c_str());
+ 			fich.write((char*)&aux,40);
+
+ 			entero=a1->getEquipo();
+ 			fich.write((char*)&entero,sizeof(int));
+
+ 			entero=a1->getLider();
+ 			fich.write((char*)&entero,sizeof(int));
  		}
 
  		fich.close();
-		return 1;
-
- }
- int Profesor::Cargar_fichero(string nombre,Agenda agenda){
- 	Alumno aux("A","b","c","d",0000000,"XXXX@gmail.com",0,"DD/MM/AA",0,9999);
+ 		return 1;
+}
+ list<class Alumno> Profesor::Cargar_fichero(string nombre){
+	char aux[40];
+	int entero=0;
+ 	Alumno alumno("A","b","c","d",0000000,"XXXX@gmail.com",0,"DD/MM/AA",0,9999);
+ 	
  	list<class Alumno> agendaAux;
- 	ifstream ficherosalida(nombre.c_str(), ios::in|ios::binary);
- 	ficherosalida.seekg(0,ios::beg);
- 		if(!ficherosalida.is_open()){
-			return 0;
-		}
- 		if(ficherosalida.is_open()){
-  			while(!ficherosalida.eof()){
- 				ficherosalida.read((char*)&aux,sizeof(Alumno));
- 				agendaAux.push_back(aux);
+ 		
+ 	ifstream fich(nombre.c_str(), ios::in|ios::binary);
+ 	fich.seekg(0,ios::beg);
+ 		if(fich.is_open()){
+ 			
+  			while(!fich.eof()){
+ 				fich.read((char*)&aux,40);
+ 				cout<<"--"<<aux<<endl;
+	 			alumno.setDNI(aux);
+	 			
+	 			fich.read((char*)&aux,40);
+	 			alumno.setNombre(aux);
+	 			
+	 			fich.read((char*)&aux,40);
+	 			alumno.setApellidos(aux); 			
+
+	 			fich.read((char*)&aux,40);
+	 			alumno.setDireccion(aux);
+	 			
+	 			fich.read((char*)&entero,sizeof(int));
+	 			alumno.setTelefono(entero);
+
+	 			fich.read((char*)&aux,40);
+	 			alumno.setEmail(aux);
+
+	 			fich.read((char*)&entero,sizeof(int));
+	 			alumno.setCurso(entero);
+
+	 			fich.read((char*)&aux,40);
+	 			alumno.setFecha(aux);
+
+	 			fich.read((char*)&entero,sizeof(int));
+	 			alumno.setEquipo(entero);
+
+	 			fich.read((char*)&entero,sizeof(int));
+	 			alumno.setLider(entero);
+ 				
 
   			}
+	 			agendaAux.push_back(alumno);
+  		
   		}
-	agenda.setAgenda(agendaAux);
- 	ficherosalida.close();
- 	return 1;
+ 	fich.close();
+ 	
+ 	return agendaAux;
 
  }
  int Profesor::Guardar_fichero(string nombre,Agenda Aux){
-	 int respuesta=0;
-	 ifstream copia(nombre.c_str());
-	 if(copia.is_open()){
-		 cout<<"El fichero ya existe. ¿Desea sobreescribirlo? Si 1 No 2"<<endl;
-		 cin>>respuesta;
-		 if(respuesta<1||respuesta>2||respuesta==2){
-			 cout<<"No ha introducido una respuesta valida. Cancelando ..."<<endl;
-			 copia.close();
-			 return 0;
-		 }
-		 copia.close();
-	 }
+ 	char aux[40];
+ 	int entero=0;
+	int respuesta=0;
+	ifstream copia(nombre.c_str());
+	if(copia.is_open()){
+		cout<<"El fichero ya existe. ¿Desea sobreescribirlo? Si 1 No 2"<<endl;
+		cin>>respuesta;
+		if(respuesta<1||respuesta>2||respuesta==2){
+			cout<<"No ha introducido una respuesta valida. Cancelando ..."<<endl;
+			copia.close();
+			return 0;
+		}
+		copia.close();
+	}
  		ofstream fich(nombre.c_str());
- 		//fich.seekp(0, ios::beg);
+ 		fich.seekp(0,ios::beg);
  		list<Alumno>::iterator a1;
-
- 		for(a1=Aux.getAgenda().begin();a1!=Aux.getAgenda().end();a1++){
- 			fich.write((char*)&a1,sizeof(Alumno));
+ 		list<Alumno> lista;
+ 		lista=Aux.getAgenda();
+ 		for(a1=lista.begin();a1!=lista.end();a1++){
+ 			strcpy(aux,a1->getDNI().c_str());
+ 			cout<<"--"<<aux<<endl;
+ 			fich.write((char*)&aux,40);
+ 			strcpy(aux,a1->getNombre().c_str());
+ 			fich.write((char*)&aux,40);
+ 			strcpy(aux,a1->getApellidos().c_str());
+ 			fich.write((char*)&aux,40);
+ 			strcpy(aux,a1->getDireccion().c_str());
+ 			fich.write((char*)&aux,40);
+ 			entero=a1->getTelefono();
+ 			fich.write((char*)&entero,sizeof(int));
+ 			strcpy(aux,a1->getEmail().c_str());
+ 			fich.write((char*)&aux,40);
+ 			entero=a1->getCurso();
+ 			fich.write((char*)&entero,sizeof(int));
+ 			strcpy(aux,a1->getFecha().c_str());
+ 			fich.write((char*)&aux,40);
+ 			entero=a1->getEquipo();
+ 			fich.write((char*)&entero,sizeof(int));
+ 			entero=a1->getLider();
+ 			fich.write((char*)&entero,sizeof(int));
  		}
 
  		fich.close();
