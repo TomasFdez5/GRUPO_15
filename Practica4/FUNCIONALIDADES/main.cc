@@ -391,7 +391,13 @@ int main(){
 									cout<<"No se ha introducido ningun DNI. ERROR!!!!"<<endl;
 									break;
 								}
-								agend.borrar(cadena);
+								if(agend.borrar(cadena)==1){
+									cout<<"Jugador borrado con exito."<<endl;
+								}
+								if(agend.borrar(cadena)==2){
+									cout<<"Jugador que desea borrar no se encuentra en la lista."<<endl;
+								}
+
 						break;
 						case 2:
 								cout<<"Introduzca los apellidos del alumno a borrar."<<endl;
@@ -400,7 +406,12 @@ int main(){
 									cout<<"No se han introducido apellidos. ERROR!!!!"<<endl;
 									break;
 								}
-								agend.borrar1(cadena);
+								if(agend.borrar1(cadena)==1){
+									cout<<"Jugador borrado con exito."<<endl;
+								}
+								if(agend.borrar1(cadena)==2){
+									cout<<"Jugador que desea borrar no se encuentra en la lista."<<endl;
+								}
 
 						break;
 						
