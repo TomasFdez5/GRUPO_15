@@ -1,3 +1,6 @@
+A continuación le proporcionamos tres usuarios diferentes los cuales ya se encuentran registrados en el sistema.
+Con los diferentes usuarios podrá acceder a las diferentes funcionalidades establecidas para ambos roles.
+
 Usuario 1: 
 ID : tomas
 contraseña : profesor1
