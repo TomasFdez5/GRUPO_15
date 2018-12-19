@@ -1,3 +1,7 @@
+/*
+Compilacion : g++ -Wall main.cc agenda.cc alumno.cc profesor.cc -o UCOagend.exe
+*/
+
 #include "alumno.h"
 #include "agenda.h"
 #include "profesor.h"
