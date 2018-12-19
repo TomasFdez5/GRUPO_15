@@ -61,6 +61,10 @@ int main(){
 
 		}
 		if(opcion==2){
+			if((profesor.Logearse(profesor))==-2){
+					cout<<"La contraseña introducida no es correcta."<<endl;
+					return -1;
+			}
 			if(profesor.Logearse(profesor)==0){
 					cout<<"El usuario no se encuentra registrado."<<endl;
 					cout<<"¿Desea registrarse? SI (1)  NO (0)"<<endl;
